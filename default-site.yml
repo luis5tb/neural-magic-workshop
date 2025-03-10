@@ -1,5 +1,5 @@
 site:
-  title: "Streamlining insurance claims with OpenShift AI"
+  title: "Neural Magic Workshop: Hands-On AI Optimization with OpenShift AI"
   url: https://redhat-scholars.github.io/course-template
   start_page: modules::index.adoc
 
@@ -9,7 +9,7 @@ ui:
   supplemental_files: ./content/supplemental-ui
 
 content:
-  edit_url: 'https://github.com/rh-aiservices-bu/insurance-claim-processing/edit/dev/{path}'
+  edit_url: 'https://github.com/luis5tb/neural-magic-workshop/edit/dev/{path}'
   sources:
     - url: ./
       start_path: content
