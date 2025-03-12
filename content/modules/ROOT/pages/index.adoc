@@ -3,59 +3,98 @@ include::_attributes.adoc[]
 
 == Lab Overview
 
-This lab will illustrate how the use of various AI/ML technologies can be combined to produce a valuable solution to a business problem.
+This lab will illustrate how to leverage Neural Magic's model optimization techniques (llm-compressor) on OpenShift AI to enable fitting your model to your hardware.
+You will learn how to achieve significant performance improvements and cost reductions through model sparsification and quantization.
 
-The information, code, models and techniques it contains are illustrations of what a first prototype could look like. It is not the definitive way of addressing the stated requirements.
+The information, code, pipelines and techniques it contains are illustrations of what a first prototype could look like.
 
 == Disclaimer
 
-This lab is an example of what a customer could build using OpenShift AI. OpenShift AI has no specific feature related to Insurance Claim Processing.
+This lab is an example of what a customer could use to optimize its models for enhanced inferencing while reducing hardware costs using OpenShift AI.
 
-This lab makes use of large language models (LLM) and image processing models. These models are not included in the OpenShift AI product. They are provided as a convenience for this lab.
+This lab makes use of "small" size large language models (LLM) for speeding up the process, but the same techniques would apply for larger models.
 
-The quality of these models is enough for a prototype. Choosing the right model to use in a production environment is a complex task that requires a lot of experimentation and tuning. This lab does not cover this aspect.
+== Repository
 
-== Timetable
+This repository link:https://github.com/luis5tb/openshift-commons-neural-magic/[window=_blank] contains workshop materials and examples for creating optimized models with Neural Magic solutions on OpenShift.
+This workshop is part of the OpenShift Commons initiative.
+
+=== Repository Structure
+
+==== Workbenches
+
+The `workbenches/` directory contains Jupyter notebooks and interactive environments for:
+
+* Model optimization techniques:
+** Weights quantization: `int4`
+** Weights and activations quantization: `fp8` and `int8`
+* Model accuracy/performance evaluation
+
+==== Pipelines
+
+The `pipelines/` directory includes automated workflows for:
+
+* Model quantization pipelines for optimizing models while maintaining accuracy
+* Also includes evaluation steps
+* Readme with instructions to create and run the pipeline
+
+=== Prerequisites
+
+* OpenShift AI
+* NVIDIA GPUs
+
+=== Usage
+
+1. Go to Data Science Projects in OpenShift AI and create a new project.
+2. Ensure a pipeline server is configured.
+3. Create a workbench in the project.
+.. Select Standard Data Science.
+.. Select medium size and add a GPU to it.
+4. Clone this repository: https://github.com/your-org/openshift-commons-neural-magic.git
+5. Go to the workbenches folder and follow the setup instructions in each workbench.
+6. Once done with the workbenches, go to the pipeline folder and compile the pipeline. Follow instructions in the README.md file at the pipeline folder.
+7. Download the created pipeline yaml file and import it in OpenShift AI, Data Science Pipelines.
+8. Run the pipeline.
+
+== Workshop Timetable
 
 This is a tentative timetable for the materials that will be presented today.
 
 [width="90%",cols="3,^2,^2,10",options="header"]
 |=========================================================
-| Name |Duration |Type |Description
+| Time | Section | Type | Description
 
-|Background |5 | Presentation
-a|- We describe what the desired end state looks like.
-- Describe overall user experience and underlying architecture.
-- Share mockups for better visualization
+|0 - 15 min |Intro Talk & AI Optimization Overview |Presentation
+a|- What is OpenShift AI? (Portfolio overview)
+- Why Optimize AI Models? (Challenges with GPUs, benefits of compression)
+- Introduction to vLLM & Neural Magic
 
-|Connection and Setup |10 | Hands-On
-a|- Attendees get connected
-- help validate environment health
-- setup the playpen project
+|15 - 25 min |Workshop Setup |Hands-On
+a|- Guide participants through demo.redhat.com setup
+- Explain workshop environment & MinIO storage
 
-|LLM |20 | Hands-On
-a|- summarization check
-- sentiment check
-- Model Comparison check and choice
-- prompt engineering exercise
-- sanity-check pipeline
+|25 - 45 min |Workbench Creation & Model Quantization |Hands-On
+a|- Hands-on: Step-by-step quantization of a model manually
+- Int4
+- Int8
+- fp8
 
-|Image Processing |20 | Hands-On
-a|- car recognition checks
-- re-training exercise
-- model deployment
+|45 - 65 min |Pipeline Creation & Deployment |Hands-On
+a|- Create an AI pipeline backed by MinIO
+- Import a pipeline YAML and trigger the pipeline with parameters
 
-|Web App  |20 | Hands-On
-a|- deployment
-- update
+|65 - 85 min |Deploy Base and Optimized Model |Hands-On
+a|- Deploy a base AI model using OpenShift AI ServingRuntime
+- Deploy a pre-optimized model from MinIO
+- Compare performance vs. base model
 
-|Productization  |5 | Presentation + discussion
-a|- What else could we add that would have value?
-- What else could we do following the same patterns?
+|85 - 90 min |Q&A + Wrap-Up |Hands-On
+a|- Recap learnings
+- Open discussion on real-world AI optimization
 
 |=========================================================
 
 
 == Contributing
 
-If you are interested in contributing to this project, consult this GitHub Repo: https://github.com/rh-aiservices-bu/insurance-claim-processing/[https://github.com/rh-aiservices-bu/insurance-claim-processing/,window=_blank]
+If you are interested in contributing to this project, consult this GitHub Repo: link:https://github.com/luis5tb/openshift-commons-neural-magic/[window=_blank]
