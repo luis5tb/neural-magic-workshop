@@ -16,8 +16,8 @@
 ** xref:03-03-information-extractions.adoc[3.3 Weights and Activation Quantization (FP-8)]
 
 * 4. Pipelines: Working with LLM Compressor
-** xref:03-04-comparing-models.adoc[4.1 Quantization with Pipelines]
-** xref:03-04-comparing-models.adoc[4.2 Exercise]
+** xref:04-01-quantization-pipeline.md[4.1 Quantization with Pipelines]
+** xref:04-02-quantization-pipeline-exercise.md[4.2 Exercise]
 
 * 5. Model Performance ComparisonImage Processing
 ** xref:04-01-over-approach.adoc[5.1 Serving Base Models]
