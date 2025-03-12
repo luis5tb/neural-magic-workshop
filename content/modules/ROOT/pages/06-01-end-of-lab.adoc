@@ -1,0 +1,17 @@
+= Thank you for your participation
+include::_attributes.adoc[]
+
+We hope that the materials we used during this time together were useful and gave you a better understanding of OpenShift AI, Workbenches, Pipelines, Model Serving and Model Optimization techniques.
+
+
+If you notice https://github.com/luis5tb/neural-magic-workshop/issues[issues,window=_blank] with the content and/or want to send us a https://github.com/luis5tb/neural-magic-workshop/pulls[pull request,window=_blank], we'll appreciate it very much.
+
+The instructions of this lab are always available at https://luis5tb.github.io/neural-magic-workshop/[https://luis5tb.github.io/neural-magic-workshop,window=_blank].
+Make note of this URL as it will be updated with new content as we continue to improve the lab.
+
+== Acknowledgements
+
+Here is a list of people who have participated to the creation and delivery of this lab.
+
+* Luis Tomás Bolívar
+* Alireza Rahmani

@@ -24,4 +24,4 @@
 ** xref:04-02-car-recog.adoc[5.2 Serving Optimized Models]
 
 * 6. End of Lab
-** xref:07-01-end-of-lab.adoc[6.1 Thanks]
+** xref:06-01-end-of-lab.adoc[6.1 Thanks]
