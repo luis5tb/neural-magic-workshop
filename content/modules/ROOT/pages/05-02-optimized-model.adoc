@@ -1,0 +1,46 @@
+= Deploy and Test the Optimized Model
+include::_attributes.adoc[]
+
+== Deploy the Optimized Model
+
+== Test the Optimized Model
+
+Now that the optimized model is deployed, you can test it by sending a request to the model, and also checking the faster response time.
+
+=== Environment Setup
+
+. Update the following variables in `request.py`:
+   ```python
+   MODEL = "your-model-name"  // Replace with your model name
+   URL = "your-api-url"       // Replace with your API endpoint
+   API_KEY = "your-api-key"   // Replace with your API key
+   ```
+
+=== Installation Steps
+
+. Create and activate a Python virtual environment:
+   [source,bash]
+   ----
+   python -m venv venv
+   source venv/bin/activate 
+   ----
+
+. Install the required dependency:
+   [source,bash]
+   ----
+   pip install langchain_openai
+   ----
+
+=== Running the Script
+
+To run the script and measure execution time:
+[source,bash]
+----
+time python request.py
+----
+
+This will execute the script and display:
+* The script's output
+* Real time (wall clock time)
+* User CPU time
+* System CPU time

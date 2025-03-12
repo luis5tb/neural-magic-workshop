@@ -1,0 +1,20 @@
+= Weights and Activation Quantization (INT-8)
+include::_attributes.adoc[]
+
+In this exercise, we will use a notebook to investigate how LLMs weights and activations can be quantized to INT8 for memory savings and inference acceleration.
+This quantization method is particularly useful for reducing model size while maintaining good performance.
+
+== Quantization Process
+
+The quantization process involves the following steps:
+
+1. *Load the Model*: Load the pre-trained LLM model.
+2. *Prepare calibration dataset*: Prepare a dataset for calibration.
+3. *Quantize the Model*: Convert the model weights and activations to INT8 format.
+4. *Evaluate the Model*: Evaluate the quantized model's accuracy.
+
+== Exercise: Quantize the Model with llm-compressor
+
+From the `neural-magic-workshop/lab-materials/03` folder, please open the notebook called `weight_activation_quantization.ipynb` and follow the instructions.
+
+When done, you can close the notebook and head to the next page.

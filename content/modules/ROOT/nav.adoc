@@ -20,8 +20,8 @@
 ** xref:04-02-quantization-pipeline-exercise.adoc[4.2 Exercise]
 
 * 5. Model Performance ComparisonImage Processing
-** xref:04-01-over-approach.adoc[5.1 Serving Base Models]
-** xref:04-02-car-recog.adoc[5.2 Serving Optimized Models]
+** xref:05-01-base-model.adoc[5.1 Serving Base Models]
+** xref:05-02-optimized-model.adoc[5.2 Serving Optimized Models]
 
 * 6. End of Lab
 ** xref:06-01-end-of-lab.adoc[6.1 Thanks]

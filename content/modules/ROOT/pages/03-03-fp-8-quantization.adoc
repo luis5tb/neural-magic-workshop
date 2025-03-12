@@ -1,0 +1,22 @@
+= Weights and Activation Quantization (FP-8)
+include::_attributes.adoc[]
+
+In this exercise, we will use a notebook to investigate how LLMs weights and actications can be quantized to FP8 for memory savings and inference acceleration.
+Quantization of models with FP8 allows for a 2x reduction in model memory requirements and up to a 1.6x improvement in throughput with minimal impact on accuracy.
+
+NOTE: Currently, only Hopper and Ada Lovelace GPUs are officially supported for W8A8. Ampere GPUs are supported for W8A16 (weight-only FP8) utilizing Marlin kernels.
+
+
+== Quantization Process
+
+The quantization process involves the following steps:
+
+1. *Load the Model*: Load the pre-trained LLM model.
+2. *Quantize the Model*: Convert the model weights and activations to FP8 format.
+3. *Evaluate the Model*: Evaluate the quantized model's accuracy.
+
+== Exercise: Quantize the Model with llm-compressor
+
+From the `neural-magic-workshop/lab-materials/03` folder, please open the notebook called `weight_activation_quantization_fp8ipynb` and follow the instructions.
+
+When done, you can close the notebook and head to the next page.
