@@ -11,9 +11,9 @@
 ** xref:02-03-creating-workbench.adoc[2.4 Creating your pipeline]
 
 * 3. Workbench: Working with LLM Compressor
-** xref:03-01-notebook-based-llm.adoc[3.1 Weights Only Quantization (INT-4)]
-** xref:03-02-summarization.adoc[3.2 Weights and Activation Quantization (INT-8)]
-** xref:03-03-information-extractions.adoc[3.3 Weights and Activation Quantization (FP-8)]
+** xref:03-01-int-4-quantization.adoc[3.1 Weights Only Quantization (INT-4)]
+** xref:03-02-int-8-quantization.adoc[3.2 Weights and Activation Quantization (INT-8)]
+** xref:03-03-fp-8-quantization.adoc[3.3 Weights and Activation Quantization (FP-8)]
 
 * 4. Pipelines: Working with LLM Compressor
 ** xref:04-01-quantization-pipeline.adoc[4.1 Quantization with Pipelines]
