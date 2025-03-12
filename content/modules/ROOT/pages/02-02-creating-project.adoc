@@ -13,7 +13,7 @@ As a preliminary step, each of you is going to
 ** we will need one, and it's better to create it from the start
 
 . Launch a Workbench
-** we will use it to review content and notebooks
+** we will use it to review content and notebooks and to run the lab exercises to optimize the model.
 
 . Clone the git repo into your Workbench
 ** this contains all the code from the prototype
@@ -115,6 +115,3 @@ image::02/02-02-pipelineserver02.png[]
 image::02/02-02-pipelineserver03.png[]
 
 At this point, your pipeline server is ready and deployed.
-
-IMPORTANT: You need to **wait** until that screen is ready. If it's still spinning, wait for it to complete. If you continue and create your workbench **before** the pipeline server is ready, your workbench will not be able to submit pipelines to it.
-
