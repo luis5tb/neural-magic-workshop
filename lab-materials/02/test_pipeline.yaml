@@ -1,0 +1,489 @@
+# PIPELINE DEFINITION
+# Name: quantization-pipeline
+# Description: A pipeline for quantizing a model
+# Inputs:
+#    model_id: str [Default: 'ibm-granite/granite-3.2-2b-instruct']
+#    output_path: str [Default: 'granite-int8']
+#    quantization_type: str [Default: 'int8']
+components:
+  comp-createpvc:
+    executorLabel: exec-createpvc
+    inputDefinitions:
+      parameters:
+        access_modes:
+          description: 'AccessModes to request for the provisioned PVC. May
+
+            be one or more of ``''ReadWriteOnce''``, ``''ReadOnlyMany''``, ``''ReadWriteMany''``,
+            or
+
+            ``''ReadWriteOncePod''``. Corresponds to `PersistentVolumeClaim.spec.accessModes
+            <https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes>`_.'
+          parameterType: LIST
+        annotations:
+          description: Annotations for the PVC's metadata. Corresponds to `PersistentVolumeClaim.metadata.annotations
+            <https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#PersistentVolumeClaim>`_.
+          isOptional: true
+          parameterType: STRUCT
+        pvc_name:
+          description: 'Name of the PVC. Corresponds to `PersistentVolumeClaim.metadata.name
+            <https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#PersistentVolumeClaim>`_.
+            Only one of ``pvc_name`` and ``pvc_name_suffix`` can
+
+            be provided.'
+          isOptional: true
+          parameterType: STRING
+        pvc_name_suffix:
+          description: 'Prefix to use for a dynamically generated name, which
+
+            will take the form ``<argo-workflow-name>-<pvc_name_suffix>``. Only one
+
+            of ``pvc_name`` and ``pvc_name_suffix`` can be provided.'
+          isOptional: true
+          parameterType: STRING
+        size:
+          description: The size of storage requested by the PVC that will be provisioned.
+            For example, ``'5Gi'``. Corresponds to `PersistentVolumeClaim.spec.resources.requests.storage
+            <https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#PersistentVolumeClaimSpec>`_.
+          parameterType: STRING
+        storage_class_name:
+          defaultValue: ''
+          description: 'Name of StorageClass from which to provision the PV
+
+            to back the PVC. ``None`` indicates to use the cluster''s default
+
+            storage_class_name. Set to ``''''`` for a statically specified PVC.'
+          isOptional: true
+          parameterType: STRING
+        volume_name:
+          description: 'Pre-existing PersistentVolume that should back the
+
+            provisioned PersistentVolumeClaim. Used for statically
+
+            specified PV only. Corresponds to `PersistentVolumeClaim.spec.volumeName
+            <https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/#PersistentVolumeClaimSpec>`_.'
+          isOptional: true
+          parameterType: STRING
+    outputDefinitions:
+      parameters:
+        name:
+          parameterType: STRING
+  comp-deletepvc:
+    executorLabel: exec-deletepvc
+    inputDefinitions:
+      parameters:
+        pvc_name:
+          description: Name of the PVC to delete. Supports passing a runtime-generated
+            name, such as a name provided by ``kubernetes.CreatePvcOp().outputs['name']``.
+          parameterType: STRING
+  comp-download-model:
+    executorLabel: exec-download-model
+    inputDefinitions:
+      parameters:
+        model_id:
+          parameterType: STRING
+        output_path:
+          parameterType: STRING
+  comp-evaluate-model:
+    executorLabel: exec-evaluate-model
+    inputDefinitions:
+      parameters:
+        model_path:
+          parameterType: STRING
+  comp-quantize-model:
+    executorLabel: exec-quantize-model
+    inputDefinitions:
+      parameters:
+        model_path:
+          parameterType: STRING
+        output_path:
+          parameterType: STRING
+        quantization_type:
+          parameterType: STRING
+  comp-upload-model:
+    executorLabel: exec-upload-model
+    inputDefinitions:
+      parameters:
+        model_path:
+          parameterType: STRING
+        s3_path:
+          parameterType: STRING
+deploymentSpec:
+  executors:
+    exec-createpvc:
+      container:
+        image: argostub/createpvc
+    exec-deletepvc:
+      container:
+        image: argostub/deletepvc
+    exec-download-model:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - download_model
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.9.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"'  &&\
+          \  python3 -m pip install --quiet --no-warn-script-location 'huggingface-hub'\
+          \ && \"$0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef download_model(\n    model_id: str,\n    output_path: str,\n\
+          ):\n    from huggingface_hub import snapshot_download\n\n    snapshot_download(repo_id=model_id,\
+          \ local_dir=output_path)\n    print(\"Model downloaded successfully from\
+          \ HF.\")\n\n"
+        image: registry.access.redhat.com/ubi9/python-312
+    exec-evaluate-model:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - evaluate_model
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.9.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"'  &&\
+          \  python3 -m pip install --quiet --no-warn-script-location 'lm_eval==v0.4.3'\
+          \ 'vllm' && \"$0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef evaluate_model(\n    model_path: str,\n):\n    \"\"\" Command\
+          \ to execute:\n    lm_eval --model vllm \\\n      --model_args pretrained=$MODEL_PATH,add_bos_token=true\
+          \ \\\n      --trust_remote_code \\\n      --tasks gsm8k \\\n      --num_fewshot\
+          \ 5 \\\n      --limit 250 \\\n      --batch_size 'auto'\n    \"\"\"\n  \
+          \  import subprocess\n    import os\n\n    model_args = \"pretrained=\"\
+          \ + model_path  + \",add_bos_token=true\"\n\n    # Execute the huggingface_hub-cli\
+          \ command\n    env = os.environ.copy()\n    env[\"CUDA_VISIBLE_DEVICES\"\
+          ] = \"0\"\n    result = subprocess.run([\"lm_eval\",\n                 \
+          \            \"--model\", \"vllm\",\n                             \"--model_args\"\
+          , model_args,\n                             \"--trust_remote_code\",\n \
+          \                            \"--tasks\", \"gsm8k\",\n                 \
+          \            \"--num_fewshot\", \"5\",\n                             \"\
+          --limit\", \"250\",\n                             \"--batch_size\", \"auto\"\
+          ],\n                            capture_output=True, text=True, env=env)\n\
+          \    # Check for errors or output\n    if result.returncode == 0:\n    \
+          \    print(\"Model evaluated successfully:\")\n        print(result.stdout)\n\
+          \    else:\n        print(\"Error evaluating the model:\")\n        print(result.stderr)\n\
+          \n"
+        image: registry.access.redhat.com/ubi9/python-312
+        resources:
+          accelerator:
+            count: '1'
+            type: nvidia.com/gpu
+    exec-quantize-model:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - quantize_model
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.9.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"'  &&\
+          \  python3 -m pip install --quiet --no-warn-script-location 'llmcompressor'\
+          \ 'accelerate' 'vllm' && \"$0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef quantize_model(\n    model_path: str,\n    output_path: str,\n\
+          \    quantization_type: str,\n):\n    from transformers import AutoTokenizer,\
+          \ AutoModelForCausalLM\n\n    # 1) Load model and tokenizer\n    model =\
+          \ AutoModelForCausalLM.from_pretrained(\n        model_path, device_map=\"\
+          auto\", torch_dtype=\"auto\",\n    )\n    tokenizer = AutoTokenizer.from_pretrained(model_path)\n\
+          \n    # 2) Data calibration\n    from datasets import load_dataset\n\n \
+          \   # Exercise left for the attendance:\n    # This is harcoded but it could\
+          \ be parametrized in the pipeline\n    NUM_CALIBRATION_SAMPLES = 256  #\
+          \ 1024\n    DATASET_ID = \"neuralmagic/LLM_compression_calibration\"\n \
+          \   DATASET_SPLIT = \"train\"\n\n    # Load dataset.\n    ds = load_dataset(DATASET_ID,\
+          \ split=DATASET_SPLIT)\n    ds = ds.shuffle(seed=42).select(range(NUM_CALIBRATION_SAMPLES))\n\
+          \n    # Preprocess the data into the format the model is trained with.\n\
+          \    def preprocess(example):\n        return {\"text\": example[\"text\"\
+          ]}\n    ds = ds.map(preprocess)\n\n    # Tokenize the data\n    def tokenize(sample):\n\
+          \        return tokenizer(\n            sample[\"text\"],\n            padding=False,\n\
+          \            truncation=False,\n            add_special_tokens=True,\n \
+          \       )\n    ds = ds.map(tokenize, remove_columns=ds.column_names)\n\n\
+          \    # 3) Quantize model\n    from llmcompressor.modifiers.quantization\
+          \ import GPTQModifier\n    from llmcompressor.transformers import oneshot\n\
+          \    from llmcompressor.modifiers.smoothquant import SmoothQuantModifier\n\
+          \n    # Exercise left for the attendance:\n    # This is harcoded but it\
+          \ could be parametrized in the pipeline\n    DAMPENING_FRAC = 0.1  # 0.01\n\
+          \    OBSERVER = \"mse\"  # minmax\n    GROUP_SIZE = 128  # 64\n    # Configure\
+          \ the quantization algorithm to run.\n    ignore=[\"lm_head\"]\n    mappings=[\n\
+          \        [[\"re:.*q_proj\", \"re:.*k_proj\", \"re:.*v_proj\"], \"re:.*input_layernorm\"\
+          ],\n        [[\"re:.*gate_proj\", \"re:.*up_proj\"], \"re:.*post_attention_layernorm\"\
+          ],\n        [[\"re:.*down_proj\"], \"re:.*up_proj\"]\n    ]\n    if quantization_type\
+          \ == \"int8\":\n        recipe = [\n            SmoothQuantModifier(smoothing_strength=0.7,\
+          \ ignore=ignore, mappings=mappings),\n            GPTQModifier(\n      \
+          \          targets=[\"Linear\"],\n                ignore=ignore,\n     \
+          \           scheme=\"W8A8\",\n                dampening_frac=DAMPENING_FRAC,\n\
+          \                observer=OBSERVER,\n            )\n        ]\n    elif\
+          \ quantization_type == \"int4\":\n        recipe = [\n            GPTQModifier(\n\
+          \                targets=[\"Linear\"],\n                ignore=ignore,\n\
+          \                scheme=\"w4a16\",\n                dampening_frac=DAMPENING_FRAC,\n\
+          \                observer=OBSERVER,\n                group_size=GROUP_SIZE\n\
+          \            )\n        ]\n    else:\n        raise ValueError(f\"Quantization\
+          \ type {quantization_type} not supported\")\n\n    oneshot(\n        model=model,\n\
+          \        dataset=ds,\n        recipe=recipe,\n        num_calibration_samples=NUM_CALIBRATION_SAMPLES,\n\
+          \        max_seq_length=8196,\n    )\n\n    # Save to disk compressed.\n\
+          \    model.save_pretrained(output_path, save_compressed=True)\n    tokenizer.save_pretrained(output_path)\n\
+          \n"
+        image: registry.access.redhat.com/ubi9/python-312
+        resources:
+          accelerator:
+            count: '1'
+            type: nvidia.com/gpu
+    exec-upload-model:
+      container:
+        args:
+        - --executor_input
+        - '{{$}}'
+        - --function_to_execute
+        - upload_model
+        command:
+        - sh
+        - -c
+        - "\nif ! [ -x \"$(command -v pip)\" ]; then\n    python3 -m ensurepip ||\
+          \ python3 -m ensurepip --user || apt-get install python3-pip\nfi\n\nPIP_DISABLE_PIP_VERSION_CHECK=1\
+          \ python3 -m pip install --quiet --no-warn-script-location 'kfp==2.9.0'\
+          \ '--no-deps' 'typing-extensions>=3.7.4,<5; python_version<\"3.9\"'  &&\
+          \  python3 -m pip install --quiet --no-warn-script-location 'boto3' && \"\
+          $0\" \"$@\"\n"
+        - sh
+        - -ec
+        - 'program_path=$(mktemp -d)
+
+
+          printf "%s" "$0" > "$program_path/ephemeral_component.py"
+
+          _KFP_RUNTIME=true python3 -m kfp.dsl.executor_main                         --component_module_path                         "$program_path/ephemeral_component.py"                         "$@"
+
+          '
+        - "\nimport kfp\nfrom kfp import dsl\nfrom kfp.dsl import *\nfrom typing import\
+          \ *\n\ndef upload_model(\n    model_path: str,\n    s3_path: str,\n):\n\
+          \    import os\n    from boto3 import client\n\n    print('Starting results\
+          \ upload.')\n    s3_endpoint_url = os.environ[\"s3_host\"]\n    s3_access_key\
+          \ = os.environ[\"s3_access_key\"]\n    s3_secret_key = os.environ[\"s3_secret_access_key\"\
+          ]\n    s3_bucket_name = os.environ[\"s3_bucket\"]\n\n    print(f'Uploading\
+          \ predictions to bucket {s3_bucket_name} '\n          f'to S3 storage at\
+          \ {s3_endpoint_url}')\n\n    s3_client = client(\n        's3', endpoint_url=s3_endpoint_url,\
+          \ aws_access_key_id=s3_access_key,\n        aws_secret_access_key=s3_secret_key,\
+          \ verify=False\n    )\n\n    # Walk through the local folder and upload\
+          \ files\n    for root, dirs, files in os.walk(model_path):\n        for\
+          \ file in files:\n            local_file_path = os.path.join(root, file)\n\
+          \            s3_file_path = os.path.join(s3_path, local_file_path[len(model_path)+1:])\n\
+          \            s3_client.upload_file(local_file_path, s3_bucket_name, s3_file_path)\n\
+          \            print(f'Uploaded {local_file_path}')\n\n    print('Finished\
+          \ uploading results.')\n\n"
+        image: registry.access.redhat.com/ubi9/python-312
+pipelineInfo:
+  description: A pipeline for quantizing a model
+  name: quantization-pipeline
+root:
+  dag:
+    tasks:
+      createpvc:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-createpvc
+        inputs:
+          parameters:
+            access_modes:
+              runtimeValue:
+                constant:
+                - ReadWriteOnce
+            pvc_name_suffix:
+              runtimeValue:
+                constant: -quantization
+            size:
+              runtimeValue:
+                constant: 30Gi
+            storage_class_name:
+              runtimeValue:
+                constant: gp3-csi
+        taskInfo:
+          name: createpvc
+      deletepvc:
+        cachingOptions:
+          enableCache: true
+        componentRef:
+          name: comp-deletepvc
+        dependentTasks:
+        - createpvc
+        - evaluate-model
+        - upload-model
+        inputs:
+          parameters:
+            pvc_name:
+              taskOutputParameter:
+                outputParameterKey: name
+                producerTask: createpvc
+        taskInfo:
+          name: deletepvc
+      download-model:
+        cachingOptions: {}
+        componentRef:
+          name: comp-download-model
+        dependentTasks:
+        - createpvc
+        inputs:
+          parameters:
+            model_id:
+              componentInputParameter: model_id
+            output_path:
+              runtimeValue:
+                constant: /models/base-model
+        taskInfo:
+          name: download-model
+      evaluate-model:
+        cachingOptions: {}
+        componentRef:
+          name: comp-evaluate-model
+        dependentTasks:
+        - createpvc
+        - quantize-model
+        inputs:
+          parameters:
+            model_path:
+              runtimeValue:
+                constant: /models/optimized-model
+        taskInfo:
+          name: evaluate-model
+      quantize-model:
+        cachingOptions: {}
+        componentRef:
+          name: comp-quantize-model
+        dependentTasks:
+        - createpvc
+        - download-model
+        inputs:
+          parameters:
+            model_path:
+              runtimeValue:
+                constant: /models/base-model
+            output_path:
+              runtimeValue:
+                constant: /models/optimized-model
+            quantization_type:
+              componentInputParameter: quantization_type
+        taskInfo:
+          name: quantize-model
+      upload-model:
+        cachingOptions: {}
+        componentRef:
+          name: comp-upload-model
+        dependentTasks:
+        - createpvc
+        - quantize-model
+        inputs:
+          parameters:
+            model_path:
+              runtimeValue:
+                constant: /models/optimized-model
+            s3_path:
+              componentInputParameter: output_path
+        taskInfo:
+          name: upload-model
+  inputDefinitions:
+    parameters:
+      model_id:
+        defaultValue: ibm-granite/granite-3.2-2b-instruct
+        isOptional: true
+        parameterType: STRING
+      output_path:
+        defaultValue: granite-int8
+        isOptional: true
+        parameterType: STRING
+      quantization_type:
+        defaultValue: int8
+        isOptional: true
+        parameterType: STRING
+schemaVersion: 2.1.0
+sdkVersion: kfp-2.9.0
+---
+platforms:
+  kubernetes:
+    deploymentSpec:
+      executors:
+        exec-download-model:
+          pvcMount:
+          - mountPath: /models
+            taskOutputParameter:
+              outputParameterKey: name
+              producerTask: createpvc
+        exec-evaluate-model:
+          pvcMount:
+          - mountPath: /models
+            taskOutputParameter:
+              outputParameterKey: name
+              producerTask: createpvc
+          tolerations:
+          - effect: NoSchedule
+            key: nvidia.com/gpu
+            operator: Exists
+        exec-quantize-model:
+          pvcMount:
+          - mountPath: /models
+            taskOutputParameter:
+              outputParameterKey: name
+              producerTask: createpvc
+          tolerations:
+          - effect: NoSchedule
+            key: nvidia.com/gpu
+            operator: Exists
+        exec-upload-model:
+          pvcMount:
+          - mountPath: /models
+            taskOutputParameter:
+              outputParameterKey: name
+              producerTask: createpvc
+          secretAsEnv:
+          - keyToEnv:
+            - envVar: s3_access_key
+              secretKey: AWS_ACCESS_KEY_ID
+            - envVar: s3_secret_access_key
+              secretKey: AWS_SECRET_ACCESS_KEY
+            - envVar: s3_host
+              secretKey: AWS_S3_ENDPOINT
+            - envVar: s3_bucket
+              secretKey: AWS_S3_BUCKET
+            secretName: pipeline-s3-connection

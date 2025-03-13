@@ -1,3 +1,37 @@
 = Creating a pipeline
 include::_attributes.adoc[]
 
+== Launch a Pipeline
+
+* Once the Data Connection and Pipeline Server are fully created
+* Import a pipeline
++
+[.bordershadow]
+image::02/02-04-import-pipeline.png[]
+
+* Give a name to the pipeline, like: `Optimization-Pipeline`
+* And upload the `test_pipeline.yaml` file
+NOTE: This file is at `neural-magic-workshop/lab-materials/02` folder, you can clone the repo or download the file from it so that you can upload it here.
++
+[.bordershadow]
+image::02/02-04-import-pipeline-select.png[]
+
+* Once the pipeline file is uploaded, click **Import pipeline**
+* You can now see the graph of the imported pipeline
++
+[.bordershadow]
+image::02/02-04-import-pipeline-graph.png[]
+
+* Finally, to trigger the pipeline:
+** Click on the **Actions** button and then **Create run**
++
+[.bordershadow]
+image::02/02-04-import-pipeline-create-run.png[]
+
+** Fill in the required pipeline parameters
++
+[.bordershadow]
+image::02/02-04-import-pipeline-create-run-params.png[]
+
+** Click on the **Create run** button
+IMPORTANT: Do not trigger the run. This is just for documentation purposes, the pipeline to be triggerd will be generated on section 4
