@@ -1,0 +1,4 @@
+= OpenShift AI
+include::_attributes.adoc[]
+:slide:
+
