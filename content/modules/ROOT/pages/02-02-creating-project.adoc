@@ -45,10 +45,15 @@ IMPORTANT: It should **NOT** be `userX` like in the screenshot. (for you, `X` sh
 == Create a Data Connection for the pipeline server
 
 * We have deployed an instance of Minio in the cluster to act as a simple Object Storage for our purposes.
-* You will need to **Add data connection** that points to it.
+* You will need to **create connection** that points to it.
 +
 [.bordershadow]
 image::02/02-02-add-dc.png[]
+
+* You need to select the connection type, in this case **S3 compatible object storage -v1**
++
+[.bordershadow]
+image::02/02-02-add-dc-type.png[]
 
 * Here is the information you need to enter:
 ** Name:
@@ -99,7 +104,7 @@ image::02/data-connection.png[]
 
 It is highly recommended to create your pipeline server before creating a workbench. So let's do that now!
 
-* In your Data Science Project (DSP), click on **Create a pipeline Server**
+* In your Data Science Pipeline (project `{user}`), or in your Data Science Project, **Pipelines**, click on **Configure pipeline server**
 +
 [.bordershadow]
 image::02/02-02-pipelineserver01.png[]
