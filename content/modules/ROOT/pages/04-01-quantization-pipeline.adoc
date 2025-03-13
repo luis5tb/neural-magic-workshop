@@ -48,6 +48,8 @@ This will generate a `quantization_pipeline.yaml` file. Download it to your loca
 4. Choose "Upload file" and select the generated `quantization_pipeline.yaml`
 5. Click "Import pipeline"
 
+NOTE: This steps are detailed as sectino 2.4. Go back to it if you need to.
+
 === Pipeline Parameters
 
 When running the pipeline, you can configure the following parameters:
