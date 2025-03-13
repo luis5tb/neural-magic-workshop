@@ -11,8 +11,8 @@ image::02/02-03-create-wb.png[]
 * Make sure it has the following characteristics:
 ** Choose a name for it, like: `My Workbench`
 ** Image Selection: `Minimal Python` or `Standard Data Science`
-** Container Size: `???`
-** Accelerator: `nvidia.com/gpu`
+** Container Size: `Medium`
+** Accelerator: `nvidia-gpu`
 * That should look like:
 +
 [.bordershadow]
