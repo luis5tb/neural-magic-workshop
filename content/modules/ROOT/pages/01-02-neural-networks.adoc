@@ -2,12 +2,32 @@
 include::_attributes.adoc[]
 :slide:
 
-A neural network is a machine learning program, or model, that makes decisions in a manner similar to the human brain by using processes that mimic the way biological neurons work together to identify phenomena, weigh options, and arrive at conclusions.
+# Neural Networks
 
-Every neural network consists of layers of nodes, or artificial neurons—an input layer, one or more hidden layers, and an output layer. Each node connects to others and has its own associated weight and threshold. If the output of any individual node is above the specified threshold value, that node is activated, sending data to the next layer of the network. Otherwise, no data is passed along to the next layer of the network.
+## Overview
 
-Neural networks rely on training data to learn and improve their accuracy over time. Once they are fine-tuned for accuracy, they become powerful tools in computer science and artificial intelligence, allowing us to classify and cluster data at high speed. Tasks such as speech recognition or image recognition, which would take hours for manual identification by human experts, can be completed in minutes using neural networks. One of the best-known examples of a neural network is Google’s search algorithm.
+A **neural network** is a type of algorithm used in machine learning, particularly suited for tasks involving complex, non-linear relationships in data. These networks are inspired by the structure and function of the human brain, consisting of interconnected units called neurons that process information in layers.
 
-Neural networks are sometimes called artificial neural networks (ANNs) or simulated neural networks (SNNs). They are a subset of machine learning and are at the core of deep learning models.
+## Structure of Neural Networks
 
-To learn more, visit <a href="https://www.ibm.com/think/topics/neural-networks" target="_blank">IBM’s discussion on Neural Networks</a>.
+Neural networks are composed of:
+
+- **Input Layer:** Receives the initial data for processing.
+- **Hidden Layers:** One or more layers where computations are performed, allowing the network to learn complex patterns.
+- **Output Layer:** Produces the final result or prediction based on the processed information.
+
+Each neuron applies a mathematical function to its inputs and passes the result to the next layer. The connections between neurons have associated weights that are adjusted during training to improve accuracy.
+
+## Applications of Neural Networks
+
+Neural networks are utilized in various domains, including:
+
+- **Image and Speech Recognition:** Enhancing capabilities in computer vision and natural language processing.
+- **Predictive Analytics:** Forecasting trends and behaviors in fields like finance and healthcare.
+- **Generative AI:** Creating new content, such as text, images, or music, based on learned patterns.
+
+## Relation to Deep Learning
+
+Deep learning is a subset of machine learning that uses neural networks with many layers (deep neural networks). This approach is effective in learning hierarchical representations of data, making it powerful for tasks like image recognition, natural language processing, and speech recognition.
+
+To learn more, visit [Red Hat's discussion on machine learning](https://www.redhat.com/en/topics/ai/what-is-machine-learning).
