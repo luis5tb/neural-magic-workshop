@@ -2,3 +2,8 @@
 include::_attributes.adoc[]
 :slide:
 
+Red Hat® OpenShift® AI is a flexible, scalable artificial intelligence (AI) and machine learning (ML) platform that enables enterprises to create and deliver AI-enabled applications at scale across hybrid cloud environments.
+
+Built using open source technologies, OpenShift AI provides trusted, operationally consistent capabilities for teams to experiment, serve models, and deliver innovative apps.
+
+To learn more, visit <a href="https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai" target="_blank">Red Hat OpenShift AI</a>.
