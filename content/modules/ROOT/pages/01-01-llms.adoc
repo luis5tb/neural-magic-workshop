@@ -1,3 +1,9 @@
 = What are LLMs?
 include::_attributes.adoc[]
 
+
+A large language model (LLM) is a type of artificial intelligence model that utilizes machine learning techniques to understand and generate human language. LLMs can be incredibly valuable for companies and organizations looking to automate and enhance various aspects of communication and data processing.
+
+LLMs use neural network-based models and often employ natural language processing (NLP) techniques to process and calculate their output. NLP is a field of artificial intelligence (AI) that focuses on enabling computers to understand, interpret, and generate text, which in turn allows LLMs to perform tasks such as text analysis, sentiment analysis, language translation, and speech recognition.
+
+**[Red Hat's discussion on Large Language Models](https://www.redhat.com/en/topics/ai/what-are-large-language-models)**.
