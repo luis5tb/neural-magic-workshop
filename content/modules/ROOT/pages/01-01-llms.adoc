@@ -6,4 +6,4 @@ A large language model (LLM) is a type of artificial intelligence model that uti
 
 LLMs use neural network-based models and often employ natural language processing (NLP) techniques to process and calculate their output. NLP is a field of artificial intelligence (AI) that focuses on enabling computers to understand, interpret, and generate text, which in turn allows LLMs to perform tasks such as text analysis, sentiment analysis, language translation, and speech recognition.
 
-**[Red Hat's discussion on Large Language Models](https://www.redhat.com/en/topics/ai/what-are-large-language-models)**.
+To learn more, visit <a href="https://www.redhat.com/en/topics/ai/what-are-large-language-models" target="_blank">Red Hat’s discussion on Large Language Models</a>.
