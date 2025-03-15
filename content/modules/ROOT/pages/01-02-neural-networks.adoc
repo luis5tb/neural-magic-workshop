@@ -1,3 +1,13 @@
 = What are Neural Networks?
 include::_attributes.adoc[]
 :slide:
+
+A neural network is a machine learning program, or model, that makes decisions in a manner similar to the human brain by using processes that mimic the way biological neurons work together to identify phenomena, weigh options, and arrive at conclusions.
+
+Every neural network consists of layers of nodes, or artificial neurons—an input layer, one or more hidden layers, and an output layer. Each node connects to others and has its own associated weight and threshold. If the output of any individual node is above the specified threshold value, that node is activated, sending data to the next layer of the network. Otherwise, no data is passed along to the next layer of the network.
+
+Neural networks rely on training data to learn and improve their accuracy over time. Once they are fine-tuned for accuracy, they become powerful tools in computer science and artificial intelligence, allowing us to classify and cluster data at high speed. Tasks such as speech recognition or image recognition, which would take hours for manual identification by human experts, can be completed in minutes using neural networks. One of the best-known examples of a neural network is Google’s search algorithm.
+
+Neural networks are sometimes called artificial neural networks (ANNs) or simulated neural networks (SNNs). They are a subset of machine learning and are at the core of deep learning models.
+
+To learn more, visit <a href="https://www.ibm.com/think/topics/neural-networks" target="_blank">IBM’s discussion on Neural Networks</a>.
