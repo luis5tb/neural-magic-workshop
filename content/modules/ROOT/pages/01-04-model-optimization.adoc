@@ -3,15 +3,41 @@ include::_attributes.adoc[]
 
 Neural Magic provides model optimization techniques that enable deep learning models to achieve high performance while reducing computational costs. By leveraging sparse inference and advanced pruning methods, Neural Magic allows enterprises to deploy AI models efficiently on commodity hardware without requiring specialized accelerators like GPUs.
 
-## Key Features:
-- **Sparse Computation:** Reduces the number of active weights in neural networks to improve speed and efficiency.
-- **Pruning & Quantization:** Optimizes model size while maintaining accuracy.
-- **Inference Acceleration:** Enables high-performance AI inference on standard CPUs.
-- **Open-Source Tooling:** Supports deep learning frameworks such as PyTorch and TensorFlow.
+== Key Features
 
-## Benefits:
-- Lower hardware costs by reducing reliance on GPUs.
-- Faster inference speeds with optimized sparse models.
-- Seamless integration with existing AI workflows.
+* *Sparse Computation:* Reduces the number of active weights in neural networks to improve speed and efficiency.
+* *Pruning & Quantization:* Optimizes model size while maintaining accuracy.
+* *Inference Acceleration:* Enables high-performance AI inference on standard CPUs.
+* *Open-Source Tooling:* Supports deep learning frameworks such as PyTorch and TensorFlow.
 
-To learn more, visit <a href="https://www.neuralmagic.com/" target="_blank">Neural Magic</a>.
+== LLM Compression Tools
+
+Neural Magic offers specialized tools for optimizing large language models:
+
+* *LLM-Compressor:* A command-line tool that simplifies the process of compressing large language models through pruning and quantization.
+* *DeepSparse:* An inference runtime that leverages sparsity to accelerate model execution on CPUs.
+* *SparseML:* A toolkit for applying sparsification techniques to deep learning models during training and fine-tuning.
+
+== Compression Techniques
+
+* *Pruning:* Systematically removes unimportant weights from neural networks, creating sparse models that require less computation.
+* *Quantization:* Reduces the precision of model weights (e.g., from 32-bit to 8-bit or 4-bit), decreasing memory requirements.
+* *Knowledge Distillation:* Transfers knowledge from larger "teacher" models to smaller "student" models.
+* *Sparse Transfer Learning:* Fine-tunes pre-sparsified models for specific tasks while maintaining sparsity.
+
+== Benefits
+
+* *Cost Efficiency:* Lower hardware costs by reducing reliance on GPUs.
+* *Faster Inference:* Achieve up to 10x faster inference speeds with optimized sparse models.
+* *Reduced Memory Footprint:* Smaller model sizes enable deployment on memory-constrained devices.
+* *Energy Efficiency:* Lower computational requirements translate to reduced power consumption.
+* *Seamless Integration:* Works with popular frameworks (vLLM) and existing AI workflows.
+
+== Use Cases
+
+* *LLM Deployment:* Run large language models efficiently on CPU infrastructure or smaller GPUs.
+* *Edge AI:* Deploy optimized models on edge devices with limited resources.
+* *Cost-Effective Scaling:* Expand AI capabilities without proportional increases in infrastructure costs.
+* *Real-time Applications:* Enable faster response times for time-sensitive AI applications.
+
+To learn more, visit https://www.neuralmagic.com/[Neural Magic^] or explore their open-source tools on https://github.com/neuralmagic[GitHub^].
