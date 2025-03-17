@@ -1,33 +1,36 @@
 = What are Neural Networks?
 include::_attributes.adoc[]
-:slide:
 
-# Neural Networks
+A *neural network* is a type of algorithm used in machine learning, particularly suited for tasks involving complex, non-linear relationships in data. These networks are inspired by the structure and function of the human brain, consisting of interconnected units called neurons that process information in layers.
 
-## Overview
-
-A **neural network** is a type of algorithm used in machine learning, particularly suited for tasks involving complex, non-linear relationships in data. These networks are inspired by the structure and function of the human brain, consisting of interconnected units called neurons that process information in layers.
-
-## Structure of Neural Networks
+== Structure of Neural Networks
 
 Neural networks are composed of:
 
-- **Input Layer:** Receives the initial data for processing.
-- **Hidden Layers:** One or more layers where computations are performed, allowing the network to learn complex patterns.
-- **Output Layer:** Produces the final result or prediction based on the processed information.
+* *Input Layer:* Receives the initial data for processing.
+* *Hidden Layers:* One or more layers where computations are performed, allowing the network to learn complex patterns.
+* *Output Layer:* Produces the final result or prediction based on the processed information.
 
 Each neuron applies a mathematical function to its inputs and passes the result to the next layer. The connections between neurons have associated weights that are adjusted during training to improve accuracy.
 
-## Applications of Neural Networks
+== Applications of Neural Networks
 
 Neural networks are utilized in various domains, including:
 
-- **Image and Speech Recognition:** Enhancing capabilities in computer vision and natural language processing.
-- **Predictive Analytics:** Forecasting trends and behaviors in fields like finance and healthcare.
-- **Generative AI:** Creating new content, such as text, images, or music, based on learned patterns.
+* *Image and Speech Recognition:* Enhancing capabilities in computer vision and natural language processing.
+* *Predictive Analytics:* Forecasting trends and behaviors in fields like finance and healthcare.
+* *Generative AI:* Creating new content, such as text, images, or music, based on learned patterns.
+* *Anomaly Detection:* Identifying unusual patterns that may indicate fraud or system failures.
 
-## Relation to Deep Learning
+== Relation to Deep Learning
 
 Deep learning is a subset of machine learning that uses neural networks with many layers (deep neural networks). This approach is effective in learning hierarchical representations of data, making it powerful for tasks like image recognition, natural language processing, and speech recognition.
 
-To learn more, visit [Red Hat's discussion on machine learning](https://www.redhat.com/en/topics/ai/what-is-machine-learning).
+== Types of Neural Networks
+
+* *Convolutional Neural Networks (CNNs):* Specialized for processing grid-like data such as images.
+* *Recurrent Neural Networks (RNNs):* Designed for sequential data like text or time series.
+* *Transformer Networks:* The architecture behind modern LLMs, using attention mechanisms to process data.
+* *Generative Adversarial Networks (GANs):* Consist of two networks competing to generate realistic content.
+
+To learn more, visit https://www.redhat.com/en/topics/ai/what-is-machine-learning[Red Hat's discussion on machine learning^].
