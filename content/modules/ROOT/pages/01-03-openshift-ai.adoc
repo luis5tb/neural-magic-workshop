@@ -2,3 +2,29 @@
 include::_attributes.adoc[]
 :slide:
 
+# What is OpenShift AI?
+
+## Overview  
+**Red Hat® OpenShift® AI** is a flexible and scalable **artificial intelligence (AI) and machine learning (ML) platform** that enables enterprises to **build, deploy, and manage AI-powered applications** across **hybrid cloud environments**. 
+It is designed to streamline the AI/ML lifecycle, providing **trusted and consistent operations** from model development to production.  
+
+## Key Features  
+- **Hybrid Cloud AI/ML Platform:** Supports model training, deployment, and inference across public, private, and edge environments.  
+- **Open Source & Kubernetes-Based:** Built on **Red Hat OpenShift**, offering containerized workloads and scalability.  
+- **MLOps & Model Management:** Integrates **ML lifecycle tools**, ensuring efficient model experimentation, monitoring, and retraining.  
+- **Security & Compliance:** Provides enterprise-grade security, compliance, and governance for AI/ML workloads.  
+- **Accelerated AI Development:** Supports **deep learning frameworks** (e.g., TensorFlow, PyTorch) and **popular MLOps tools** (e.g., Kubeflow, MLflow).  
+
+## Use Cases  
+- **AI-Powered Applications:** Deploy scalable AI services for **chatbots, automation, and analytics**.  
+- **Data Science & Model Training:** Manage **large-scale AI/ML workloads** efficiently.  
+- **Edge AI:** Bring AI/ML capabilities to edge computing environments with **real-time processing**.  
+- **Enterprise MLOps:** Enable **collaborative AI model development** with streamlined CI/CD workflows.  
+
+## Why OpenShift AI?  
+- **End-to-End AI Lifecycle Management:** From **experimentation to production**, ensuring reproducibility and scalability.  
+- **Seamless Integration:** Works with existing AI/ML ecosystems, including **Jupyter Notebooks, Kubeflow, MLflow, and Open Data Hub**.  
+- **Enterprise-Grade Security:** Built-in security, governance, and access controls for AI/ML workloads.  
+- **Optimized for Performance:** Leverages **Red Hat OpenShift’s container orchestration** for efficient model deployment.  
+
+To learn more, visit <a href="https://www.redhat.com/en/technologies/cloud-computing/openshift/openshift-ai" target="_blank">Red Hat OpenShift AI</a>.
