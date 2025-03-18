@@ -16,5 +16,8 @@ The quantization process involves the following steps:
 == Exercise: Quantize the Model with llm-compressor
 
 From the `neural-magic-workshop/lab-materials/03` folder, please open the notebook called `weight_activation_quantization.ipynb` and follow the instructions.
++
+[.bordershadow]
+image::03/03-02-int8-notebook.png[]
 
 When done, you can close the notebook and head to the next page.
