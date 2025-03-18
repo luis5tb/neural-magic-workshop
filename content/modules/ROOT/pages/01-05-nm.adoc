@@ -23,6 +23,8 @@ link:https://neuralmagic.com/deepsparse/[Learn more about DeepSparse]
 === LLM-Compressor: Specialized LLM Optimization
 
 LLM-Compressor is a Transformers-compatible library for applying various compression algorithms to Large Language Models (LLMs) for optimized deployment with vLLM.
+[.bordershadow]
+image::01/01-05-llm-compressor.png[]
 
 * *Key capabilities:*
 ** One-command compression of popular LLMs
