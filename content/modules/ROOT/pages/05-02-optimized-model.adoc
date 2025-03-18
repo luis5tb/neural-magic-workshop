@@ -10,26 +10,30 @@ Now that the optimized model is deployed, you can test it by sending a request t
 === Environment Setup
 
 . Update the following variables in `request.py`:
-   ```python
-   MODEL = "your-model-name"  // Replace with your model name
-   URL = "your-api-url"       // Replace with your API endpoint
-   API_KEY = "your-api-key"   // Replace with your API key
-   ```
++
+[source,python]
+----
+MODEL = "your-model-name"  // Replace with your model name
+URL = "your-api-url"       // Replace with your API endpoint
+API_KEY = "your-api-key"   // Replace with your API key
+----
 
 === Installation Steps
 
 . Create and activate a Python virtual environment:
-   [source,bash]
-   ----
-   python -m venv venv
-   source venv/bin/activate 
-   ----
++  
+[source,bash]
+----
+python -m venv venv
+source venv/bin/activate
+----
 
 . Install the required dependency:
-   [source,bash]
-   ----
-   pip install langchain_openai
-   ----
++
+[source,bash]
+----
+pip install langchain_openai
+----
 
 === Running the Script
 
@@ -40,6 +44,7 @@ time python request.py
 ----
 
 This will execute the script and display:
+
 * The script's output
 * Real time (wall clock time)
 * User CPU time

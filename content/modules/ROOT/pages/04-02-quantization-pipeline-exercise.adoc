@@ -39,6 +39,6 @@ The current evaluation is specifically configured for GSM8K parameters. Possible
 1. Choose one or more of these areas for improvement
 2. Implement the parametrization of your chosen components
 3. Test the enhanced pipeline with different configurations
-4. *Bonus*: Send a PR to add it to the official material at link:https://github.com/luis5tb/openshift-commons-neural-magic/pulls[pull request^]
+4. *Bonus*: Send a PR to add it to the official material at link:https://github.com/luis5tb/neural-magic-workshop/pulls[pull request^]
 
 This exercise will help you understand the pipeline's architecture while making it more versatile for different use cases and environments. 
