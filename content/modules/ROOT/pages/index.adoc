@@ -16,45 +16,34 @@ This lab makes use of "small" size large language models (LLM) for speeding up t
 
 == Repository
 
-This repository link:https://github.com/luis5tb/openshift-commons-neural-magic/[window=_blank] contains workshop materials and examples for creating optimized models with Neural Magic solutions on OpenShift.
+This repository link:https://github.com/luis5tb/neural-magic-workshop/[window=_blank] contains workshop materials and examples for creating optimized models with Neural Magic solutions on OpenShift.
 This workshop is part of the OpenShift Commons initiative.
 
 === Repository Structure
 
-==== Workbenches
+==== Lab Content
 
-The `workbenches/` directory contains Jupyter notebooks and interactive environments for:
+The lab content is at the `content` folder, on the `modules/ROOT/pages` directory.
 
-* Model optimization techniques:
-** Weights quantization: `int4`
-** Weights and activations quantization: `fp8` and `int8`
-* Model accuracy/performance evaluation
+==== Lab Material
 
-==== Pipelines
+The `lab-materials/` directory contains the different materials for the different points:
 
-The `pipelines/` directory includes automated workflows for:
-
-* Model quantization pipelines for optimizing models while maintaining accuracy
-* Also includes evaluation steps
-* Readme with instructions to create and run the pipeline
+* Section 2 (folder `02`):
+** Sample pipeline yaml file: `test_pipeline.yaml`
+* Section 3 (folder `03`):
+** Jupyter notebooks for model optimization techniques and evaluation:
+*** Weights quantization: `int4`
+*** Weights and activations quantization: `fp8` and `int8`
+* Section 4 (folder `04`):
+** Pipeline source file (`quantization_pipeline.py`) for optimizing models while maintaining accuracy, also includes evaluation steps.
+* Section 5 (folder `05`):
+** Python script for testing deployed models: `request.py`
 
 === Prerequisites
 
 * OpenShift AI
 * NVIDIA GPUs
-
-=== Usage
-
-1. Go to Data Science Projects in OpenShift AI and create a new project.
-2. Ensure a pipeline server is configured.
-3. Create a workbench in the project.
-.. Select Standard Data Science.
-.. Select medium size and add a GPU to it.
-4. Clone this repository: https://github.com/your-org/openshift-commons-neural-magic.git
-5. Go to the workbenches folder and follow the setup instructions in each workbench.
-6. Once done with the workbenches, go to the pipeline folder and compile the pipeline. Follow instructions in the README.md file at the pipeline folder.
-7. Download the created pipeline yaml file and import it in OpenShift AI, Data Science Pipelines.
-8. Run the pipeline.
 
 == Workshop Timetable
 
@@ -97,4 +86,4 @@ a|- Recap learnings
 
 == Contributing
 
-If you are interested in contributing to this project, consult this GitHub Repo: link:https://github.com/luis5tb/openshift-commons-neural-magic/[window=_blank]
+If you are interested in contributing to this project, consult this GitHub Repo: link:https://github.com/luis5tb/neural-magic-workshop/[window=_blank]
