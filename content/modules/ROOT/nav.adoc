@@ -2,7 +2,8 @@
 ** xref:01-01-llms.adoc[1.1 What are LLMs?]
 ** xref:01-02-neural-networks.adoc[1.2 What are Neural Networks?]
 ** xref:01-03-openshift-ai.adoc[1.3 OpenShift AI]
-** xref:01-04-model-optimization.adoc[1.4 Neural Magic Model Optimization]
+** xref:01-04-model-optimization.adoc[1.4 Model Optimization Techniques]
+** xref:01-05-nm.adoc[1.5 Neural Magic Solutions]
 
 * 2. Connection and Setup ({user})
 ** xref:02-01-getting-connected.adoc[2.1 Getting connected]

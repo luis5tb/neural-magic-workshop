@@ -1,43 +1,72 @@
-= Neural Magic Model Optimization
+= Model Optimization Techniques
 include::_attributes.adoc[]
 
-Neural Magic provides model optimization techniques that enable deep learning models to achieve high performance while reducing computational costs. By leveraging sparse inference and advanced pruning methods, Neural Magic allows enterprises to deploy AI models efficiently on commodity hardware without requiring specialized accelerators like GPUs.
+Model optimization is a critical aspect of deploying efficient AI systems, especially when working with large, resource-intensive models. These techniques allow AI practitioners to reduce computational requirements while maintaining model performance.
 
-== Key Features
+== Core Optimization Techniques
 
-* *Sparse Computation:* Reduces the number of active weights in neural networks to improve speed and efficiency.
-* *Pruning & Quantization:* Optimizes model size while maintaining accuracy.
-* *Inference Acceleration:* Enables high-performance AI inference on standard CPUs.
-* *Open-Source Tooling:* Supports deep learning frameworks such as PyTorch and TensorFlow.
+=== Sparsification
 
-== LLM Compression Tools
+Sparsification is a technique that removes unnecessary weights from AI models, reducing model size while maintaining accuracy.
 
-Neural Magic offers specialized tools for optimizing large language models:
+* *How it works:* Identifies and eliminates redundant parameters in neural networks
+* *Benefits:*
+** Reduces model size by up to 90%
+** Increases inference speed significantly
+** Lowers computational cost for AI workloads
+** Enables efficient execution on CPUs without requiring specialized hardware
 
-* *LLM-Compressor:* A command-line tool that simplifies the process of compressing large language models through pruning and quantization.
-* *DeepSparse:* An inference runtime that leverages sparsity to accelerate model execution on CPUs.
-* *SparseML:* A toolkit for applying sparsification techniques to deep learning models during training and fine-tuning.
+*Implementation approaches:*
 
-== Compression Techniques
+* Magnitude-based pruning: Removes weights below a certain threshold
+* Structured pruning: Removes entire neurons or channels
+* Dynamic sparse training: Trains models to be sparse from the beginning
 
-* *Pruning:* Systematically removes unimportant weights from neural networks, creating sparse models that require less computation.
-* *Quantization:* Reduces the precision of model weights (e.g., from 32-bit to 8-bit or 4-bit), decreasing memory requirements.
-* *Knowledge Distillation:* Transfers knowledge from larger "teacher" models to smaller "student" models.
-* *Sparse Transfer Learning:* Fine-tunes pre-sparsified models for specific tasks while maintaining sparsity.
+link:https://docs.neuralmagic.com/guides/sparsification/[Learn more about sparsification]
 
-== Benefits
+=== Quantization
 
-* *Cost Efficiency:* Lower hardware costs by reducing reliance on GPUs.
-* *Faster Inference:* Achieve up to 10x faster inference speeds with optimized sparse models.
-* *Reduced Memory Footprint:* Smaller model sizes enable deployment on memory-constrained devices.
-* *Energy Efficiency:* Lower computational requirements translate to reduced power consumption.
-* *Seamless Integration:* Works with popular frameworks (vLLM) and existing AI workflows.
+Quantization converts high-precision model parameters into lower-precision representations, making models smaller and more efficient.
+
+* *How it works:* Reduces numerical precision of weights (e.g., from 32-bit floating point to 8-bit integers)
+* *Benefits:*
+** Compresses AI models by lowering numerical precision
+** Enables faster execution on general-purpose CPUs
+** Reduces storage and memory footprint
+** Decreases energy consumption
+
+*Common quantization methods:*
+
+* Post-training quantization (PTQ): Applied after model training
+* Quantization-aware training (QAT): Incorporates quantization during training
+* Dynamic quantization: Applied at runtime
+
+link:https://docs.vllm.ai/en/latest/features/quantization/index.html[Learn more about quantization]
+
+=== Knowledge Distillation
+
+Knowledge distillation transfers knowledge from larger "teacher" models to smaller "student" models.
+
+* *How it works:* Trains a compact model to mimic the behavior of a larger, more complex model
+* *Benefits:*
+** Creates smaller models that retain most capabilities of larger ones
+** Improves training efficiency for compact models
+** Enables deployment on resource-constrained devices
+
+== Benefits of Model Optimization
+
+* *Reduced computational requirements:* Optimized models require fewer computational resources
+* *Faster inference:* Achieve up to 10x faster inference speeds with optimized models
+* *Lower memory usage:* Smaller model sizes enable deployment on memory-constrained devices
+* *Energy efficiency:* Lower computational requirements translate to reduced power consumption
+* *Cost savings:* Reduced hardware requirements and operational costs
 
 == Use Cases
 
-* *LLM Deployment:* Run large language models efficiently on CPU infrastructure or smaller GPUs.
-* *Edge AI:* Deploy optimized models on edge devices with limited resources.
-* *Cost-Effective Scaling:* Expand AI capabilities without proportional increases in infrastructure costs.
-* *Real-time Applications:* Enable faster response times for time-sensitive AI applications.
+* *Edge AI deployment:* Run models on resource-constrained edge devices
+* *Large language model deployment:* Make LLMs more accessible with fewer resources
+* *Real-time applications:* Enable faster response times for time-sensitive AI applications
+* *Mobile applications:* Deploy AI capabilities on smartphones and tablets
+* *Cost-effective scaling:* Expand AI capabilities without proportional increases in infrastructure costs
 
-To learn more, visit https://www.neuralmagic.com/[Neural Magic^] or explore their open-source tools on https://github.com/neuralmagic[GitHub^].
+To learn more about specific implementations of these techniques, see the Neural Magic tools in the next section.
