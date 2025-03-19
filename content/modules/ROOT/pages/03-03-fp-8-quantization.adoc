@@ -23,7 +23,7 @@ image::03/03-restart-kernel.png[]
 
 == Exercise: Quantize the Model with llm-compressor
 
-From the `neural-magic-workshop/lab-materials/03` folder, please open the notebook called `weight_activation_quantization_fp8ipynb` and follow the instructions.
+From the `neural-magic-workshop/lab-materials/03` folder, please open the notebook called `weight_activation_quantization_fp8.ipynb` and follow the instructions.
 [.bordershadow]
 image::03/03-03-fp8-notebook.png[]
 

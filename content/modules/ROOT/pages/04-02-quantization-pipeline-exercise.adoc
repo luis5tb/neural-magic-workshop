@@ -5,8 +5,10 @@ The current pipeline implementation contains several hardcoded values that could
 == Enhancement Opportunities
 
 === 1. Quantization Format Support
-* Currently supports only INT8 and INT4 quantization
-* Potential enhancement: Add support for FP8 format
+Currently supports only INT8 and INT4 quantization
+
+**Potential enhancement**: Add support for FP8 format
+
 * Consider implementing a configurable quantization format selector
 
 === 2. Data Calibration Parameters
@@ -32,8 +34,9 @@ The current evaluation is specifically configured for GSM8K parameters. Possible
 * Supporting the full range of lm_eval tasks
 
 === 5. Hardware Acceleration
-* Current implementation hardcodes `nvidia.com/gpu` as the accelerator type
-* Could be enhanced to support different accelerator types.
+Current implementation hardcodes `nvidia.com/gpu` as the accelerator type
+
+**Potential enhancement**: enhanced to support different accelerator types.
 
 == Exercise Goals
 1. Choose one or more of these areas for improvement
