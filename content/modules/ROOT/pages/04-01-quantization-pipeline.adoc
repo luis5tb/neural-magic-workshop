@@ -25,7 +25,7 @@ The pipeline consists of the following stages:
 Create a terminal session
 +
 [.bordershadow]
-image::04/04-create-terminal.png
+image::04/04-create-terminal.png[]
 
 Install the required dependencies:
 
@@ -35,7 +35,7 @@ pip install kfp
 ----
 +
 [.bordershadow]
-image::04/04-install-kfp.png
+image::04/04-install-kfp.png[]
 
 == Compiling the Pipeline
 
@@ -47,12 +47,12 @@ python quantization_pipeline.py
 ----
 +
 [.bordershadow]
-image::04/04-compile-pipeline.png
+image::02/04-compile-pipeline.png[]
 
 This will generate a `quantization_pipeline.yaml` file. Download it to your local machine.
 +
 [.bordershadow]
-image::04/04-download-pipeline.png
+image::02/04-download-pipeline.png[]
 
 == Using the Pipeline
 
@@ -74,7 +74,7 @@ When running the pipeline, you can configure the following parameters:
 * `data_connection`: Data connection name for model storage (default: "aws-connection-models")
 +
 [.bordershadow]
-image::04/04-pipeline-run.png
+image::02/04-pipeline-run.png[]
 
 == Storage Requirements
 
