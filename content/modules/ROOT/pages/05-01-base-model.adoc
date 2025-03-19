@@ -3,6 +3,33 @@ include::_attributes.adoc[]
 
 == Deploy the Base Model
 
+To deploy a model you need to go to the created Data Science Project (`{user}`) and:
+
+* Click on **Models** and select the **Single-model service platform** option
++
+[.bordershadow]
+image::05/05-01-single-model.png[]
+* Click on **Deploy model**
++
+[.bordershadow]
+image::05/05-01-deploy.png[]
+* And fill the form with the required information:
+** Name: `base`
+** Serving runtime: `vLLM ServingRuntime for KServe`
+** Model server size: `Small`
+** Accelerator: `NVIDIA GPU`
+** Existing connection:
+*** Connection: `Minio - pipelines`
+*** Path: `base_model`
++
+[.bordershadow]
+image::05/05-01-model-inputs.png[]
+* Click on **Deploy** and wait for the model to be ready
++
+[.bordershadow]
+image::05/05-01-model-status.png[]
+
+
 == Test the Base Model
 
 Now that the model is deployed, you can test it by sending a request to the model, and also checking the time it takes to respond.
@@ -48,3 +75,9 @@ This will execute the script and display:
 * Real time (wall clock time)
 * User CPU time
 * System CPU time
+
+=== Remove model
+
+To remove the model...
+
+IMPORTANT: You need to remove the model before going to the next step in order to have enough GPUs.

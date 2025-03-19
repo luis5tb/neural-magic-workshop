@@ -3,6 +3,26 @@ include::_attributes.adoc[]
 
 == Deploy the Optimized Model
 
+Now that we have the optimized models on the MinIO S3 bucket, lets deploy one of them.
+
+To deploy a model you need to go to the created Data Science Project (`{user}`) and:
+
+* Go to **Models** and click on **Deploy model**
++
+[.bordershadow]
+image::05/05-01-deploy.png[]
++
+NOTE: Once single-model option has been selected for the Data Science project, there is no need to select that again, it gets annotated on the `namespace`.
+* And fill the form with the required information:
+** Name: optimized
+** Serving runtime: `vLLM ServingRuntime for KServe`
+** Model server size: `Small`
+** Accelerator: `NVIDIA GPU`
+** Existing connection:
+*** Connection: `Minio - pipelines`
+*** Path: `granite-int4` (you can choose also `granite-int8` or `granite-fp8`)
+* Click on **Deploy** and wait for the model to be ready
+
 == Test the Optimized Model
 
 Now that the optimized model is deployed, you can test it by sending a request to the model, and also checking the faster response time.
@@ -49,3 +69,9 @@ This will execute the script and display:
 * Real time (wall clock time)
 * User CPU time
 * System CPU time
+
+=== Remove model
+
+To remove the model...
+
+IMPORTANT: You need to remove the model before going to the next step in order to have enough GPUs.
