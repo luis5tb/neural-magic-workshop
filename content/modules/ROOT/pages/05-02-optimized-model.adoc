@@ -83,7 +83,7 @@ This will execute the script and display:
 
 === Remove model
 
-To remove the model...
+To remove the model simply click on the **Delete** on the **Models** tab
 
 IMPORTANT: You need to remove the model before going to the next step in order to have enough GPUs.
 +
