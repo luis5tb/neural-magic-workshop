@@ -13,12 +13,17 @@ The quantization process involves the following steps:
 
 1. *Load the Model*: Load the pre-trained LLM model.
 2. *Quantize the Model*: Convert the model weights and activations to FP8 format.
+** Using RTN (FP8_dynamic)
+** No need for calibration data
 3. *Evaluate the Model*: Evaluate the quantized model's accuracy.
++
+NOTE: After quantizing the model the GPU memory may not be freed, so you need to restart the kernel before evaluating the model to ensure you have enough GPU RAM available
+[.bordershadow]
+image::03/03-restart-kernel.png[]
 
 == Exercise: Quantize the Model with llm-compressor
 
 From the `neural-magic-workshop/lab-materials/03` folder, please open the notebook called `weight_activation_quantization_fp8ipynb` and follow the instructions.
-+
 [.bordershadow]
 image::03/03-03-fp8-notebook.png[]
 
