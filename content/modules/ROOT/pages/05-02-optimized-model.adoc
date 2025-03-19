@@ -18,6 +18,8 @@ NOTE: Once single-model option has been selected for the Data Science project, t
 ** Serving runtime: `vLLM ServingRuntime for KServe`
 ** Model server size: `Small`
 ** Accelerator: `NVIDIA GPU`
+** Model route: select option to make model available through external route
+** Token authentication: select `Require token authetication` and leave the default **Service account name**
 ** Existing connection:
 *** Connection: `Minio - pipelines`
 *** Path: `granite-int4` (you can choose also `granite-int8` or `granite-fp8`)
@@ -37,6 +39,15 @@ MODEL = "your-model-name"  // Replace with your model name
 URL = "your-api-url"       // Replace with your API endpoint
 API_KEY = "your-api-key"   // Replace with your API key
 ----
+
+To get the information from the deployed model to fill up those vars, you should use:
+
+* `optimized` as the model name
+* Copy the `token` for the API_KEY
+* Check the `internal and external endpoints details` of the deployed model for the URL
++
+[.bordershadow]
+image::05/05-01-inference-endpoints.png[]
 
 === Installation Steps
 
@@ -75,3 +86,6 @@ This will execute the script and display:
 To remove the model...
 
 IMPORTANT: You need to remove the model before going to the next step in order to have enough GPUs.
++
+[.bordershadow]
+image::05/05-01-model-delete.png[]
