@@ -16,9 +16,9 @@ asciidoc:
     ssh_user: lab-user
     ssh_password: lab-user
     ssh_command: ssh lab-user@bastion.{guid}.example.opentlc.com
-    minio-user: userX
-    minio-pass: openshift
-    minio-endpoint: http://minio-service.wksp-userX.svc.cluster.local:9000/
+    #minio-user: userX
+    #minio-pass: openshift
+    #minio-endpoint: http://minio-service.wksp-userX.svc.cluster.local:9000/
     git-clone-repo-url: https://github.com/luis5tb/neural-magic-workshop.git
     #git-clone-repo-url: https://github.com/luis5tb/openshift-commons-neural-magic.git
     git-clone-repo-branch: main

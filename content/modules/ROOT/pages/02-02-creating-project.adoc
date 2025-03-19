@@ -67,19 +67,19 @@ Minio - pipelines
 [.console-input]
 [source, text]
 [subs=attributes+]
-{minio-user}
+{user}
 ** Secret Key:
 [.lines_space]
 [.console-input]
 [source, text]
 [subs=attributes+]
-{minio-pass}
+{password}
 ** Endpoint:
 [.lines_space]
 [.console-input]
 [source, text]
 [subs=attributes+]
-{minio-endpoint}
+http://minio-service.wksp-{user}.svc.cluster.local:9000
 ** Region:
 [.lines_space]
 [.console-input]
