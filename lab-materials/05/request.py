@@ -8,7 +8,6 @@ API_KEY = YOUR_MODEL_TOKEN
 llm = ChatOpenAI(
    model=MODEL,
    temperature=0,
-   max_tokens=500,
    timeout=None,
    max_retries=2,
    api_key=API_KEY,
