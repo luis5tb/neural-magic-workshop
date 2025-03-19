@@ -86,7 +86,7 @@ Make sure your cluster has the appropriate storage class available.
 
 Before running the pipeline:
 
-1. Create a data connection in OpenShift AI pointing to your (MinIO) S3 storage. You can reuse the one created at Section 2.2 (**Minio - pipelines**)
+1. Create a data connection in OpenShift AI pointing to your (MinIO) S3 storage. You can reuse the one created at Section 2.2 (**Minio - models**)
 2. The data connection has the next mandatory fields:
 * Connection name: pipeline-s3-connection
 * Access Key

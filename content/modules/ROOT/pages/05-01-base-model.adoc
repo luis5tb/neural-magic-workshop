@@ -21,7 +21,7 @@ image::05/05-01-deploy.png[]
 ** Model route: select option to make model available through external route
 ** Token authentication: select `Require token authetication` and leave the default **Service account name**
 ** Existing connection:
-*** Connection: `Minio - pipelines`
+*** Connection: `Minio - models`
 *** Path: `base_model`
 +
 [.bordershadow]

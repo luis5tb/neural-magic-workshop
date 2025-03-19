@@ -18,7 +18,7 @@ image::02/02-03-create-wb.png[]
 [.bordershadow]
 image::02/02-02-launch-workbench-01.png[]
 * You should not need to modify any other Workbench settings (such as Storage)
-* Add the created DataConnection by clicking at the Connections section on **Attach existing connections**. And then **Attach** the created **Minio - pipelines**
+* Add the created DataConnection by clicking at the Connections section on **Attach existing connections**. And then **Attach** the created **Minio - models**
 +
 [.bordershadow]
 image::02/02-03-add-dc.png[]
