@@ -1,6 +1,6 @@
 = Model Quantization Pipeline
 
-This pipeline automates the process of quantizing machine learning models. It handles downloading the model from Hugging Face, quantizing it, uploading the quantized version, and evaluating its accuracy.
+This pipeline automates the process of quantizing machine learning models. It handles downloading the model from Hugging Face, quantizing it, uploading the quantized version to S3 (MinIO), and evaluating its accuracy.
 
 == Pipeline Overview
 
@@ -9,7 +9,7 @@ The pipeline consists of the following stages:
 1. *Create PVC*: Creates a Persistent Volume Claim for storing model data
 2. *Download Model*: Downloads the specified model from Hugging Face Hub
 3. *Quantize Model*: Performs model quantization (supports int8 quantization)
-4. *Upload Model*: Uploads the quantized model to a storage location
+4. *Upload Model*: Uploads the quantized model to a S3 (MinIO) storage location
 5. *Evaluate Model*: Evaluates the quantized model's accuracy
 6. *Delete PVC*: Cleans up by deleting the PVC after completion
 
@@ -22,12 +22,20 @@ The pipeline consists of the following stages:
 
 == Workbench Installation Instructions
 
+Create a terminal session
++
+[.bordershadow]
+image::04/04-create-terminal.png
+
 Install the required dependencies:
 
 [source,bash]
 ----
 pip install kfp
 ----
++
+[.bordershadow]
+image::04/04-install-kfp.png
 
 == Compiling the Pipeline
 
@@ -37,18 +45,24 @@ To compile the pipeline into a YAML file that can be imported into OpenShift AI:
 ----
 python quantization_pipeline.py
 ----
++
+[.bordershadow]
+image::04/04-compile-pipeline.png
 
 This will generate a `quantization_pipeline.yaml` file. Download it to your local machine.
++
+[.bordershadow]
+image::04/04-download-pipeline.png
 
 == Using the Pipeline
 
 1. Log into your OpenShift AI instance
 2. Navigate to "Data Science Pipelines" → "Pipelines"
 3. Click "Import Pipeline"
-4. Choose "Upload file" and select the generated `quantization_pipeline.yaml`
+4. Enter a "name" and choose "Upload file" and select the generated `quantization_pipeline.yaml`
 5. Click "Import pipeline"
 
-NOTE: This steps are detailed as sectino 2.4. Go back to it if you need to.
+NOTE: This steps are detailed as Section 2.4. Go back to it if you need to.
 
 === Pipeline Parameters
 
@@ -58,6 +72,9 @@ When running the pipeline, you can configure the following parameters:
 * `output_path`: Path for the quantized model (default: "granite-int8")
 * `quantization_type`: Type of quantization to perform (default: "int8")
 * `data_connection`: Data connection name for model storage (default: "aws-connection-models")
++
+[.bordershadow]
+image::04/04-pipeline-run.png
 
 == Storage Requirements
 
@@ -73,10 +90,10 @@ Make sure your cluster has the appropriate storage class available.
 
 Before running the pipeline:
 
-1. Create a data connection in OpenShift AI pointing to your S3 storage, named "pipeline-s3-connection"
+1. Create a data connection in OpenShift AI pointing to your (MinIO) S3 storage. You can reuse the one created at Section 2.2 (**Minio - pipelines**)
 2. The data connection has the next mandatory fields:
 * Connection name: pipeline-s3-connection
 * Access Key
 * Secret Key
 * Endpoint
-* Bucket: need to ensure the bucket exists on S3 (minio) before triggering the pipeline 
+* Bucket: need to ensure the bucket exists on S3 (MinIO) before triggering the pipeline 
