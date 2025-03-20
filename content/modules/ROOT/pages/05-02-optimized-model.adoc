@@ -14,7 +14,7 @@ image::05/05-01-deploy.png[]
 +
 NOTE: Once single-model option has been selected for the Data Science project, there is no need to select that again, it gets annotated on the `namespace`.
 * And fill the form with the required information:
-** Name: optimized
+** Name: `optimized`
 ** Serving runtime: `vLLM ServingRuntime for KServe`
 ** Model server size: `Small`
 ** Accelerator: `NVIDIA GPU`
@@ -31,6 +31,7 @@ Now that the optimized model is deployed, you can test it by sending a request t
 
 === Environment Setup
 
+. In your already cloned repository ({git-clone-repo-url}) in your laptop, go to the folder with the lab material for this section (`neural-magic-workshop/lab-materials/03`)
 . Update the following variables in `request.py`:
 +
 [source,python]
@@ -44,14 +45,14 @@ To get the information from the deployed model to fill up those vars, you should
 
 * `optimized` as the model name
 * Copy the `token` for the API_KEY
-* Check the `internal and external endpoints details` of the deployed model for the URL
+* Check the `internal and external endpoints details` of the deployed model for the URL. Use the **external endpoint**.
 +
 [.bordershadow]
 image::05/05-01-inference-endpoints.png[]
 
 === Installation Steps
 
-. Create and activate a Python virtual environment:
+. Activate the previously created Python virtual environment -- if not already active:
 +  
 [source,bash]
 ----
@@ -59,7 +60,7 @@ python -m venv venv
 source venv/bin/activate
 ----
 
-. Install the required dependency:
+. Install the required dependency -- if not already installed in the virtual env:
 +
 [source,bash]
 ----
@@ -89,3 +90,5 @@ IMPORTANT: You need to remove the model before going to the next step in order t
 +
 [.bordershadow]
 image::05/05-01-model-delete.png[]
+[.bordershadow]
+image::05/05-02-model-delete-optimized.png[]
