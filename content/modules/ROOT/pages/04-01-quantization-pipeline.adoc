@@ -30,7 +30,7 @@ Install the required dependencies:
 
 [source,bash]
 ----
-ip install -U kfp===2.9.0 kfp-kubernetes===1.3.0
+pip install -U kfp===2.9.0 kfp-kubernetes===1.3.0
 ----
 [.bordershadow]
 image::04/04-install-kfp.png[]
