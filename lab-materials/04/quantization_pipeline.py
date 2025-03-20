@@ -221,7 +221,7 @@ def evaluate_model(
 )
 def quantization_pipeline(
     model_id: str="ibm-granite/granite-3.2-2b-instruct",
-    output_path: str="granite-int8",
+    output_path: str="granite-int8-pipeline",
     quantization_type: str="int8",
 ):
     #Steps:
@@ -231,6 +231,7 @@ def quantization_pipeline(
     # 4) Evaluate model
 
     storage_class = "gp3-csi"
+    secret_name = "minio-models"
     # Pipeline stage
     quantization_pvc_task = CreatePVC(
         pvc_name_suffix="-quantization",
@@ -244,6 +245,14 @@ def quantization_pipeline(
         output_path=BASE_MODEL_PATH,
     )
     download_model_task.set_caching_options(False)
+    # GPU is not needed, but added to ensure the PVC is associated to a region with GPUs
+    # This avoids the following tasks are not in pending status due to either having GPUs or PVC affinity
+    download_model_task.set_accelerator_limit(1)
+    download_model_task.set_accelerator_type("nvidia.com/gpu")
+    add_toleration(download_model_task,
+                   key='nvidia.com/gpu',
+                   operator='Exists',
+                   effect='NoSchedule')
     mount_pvc(
         task=download_model_task,
         pvc_name=quantization_pvc_task.output,
@@ -286,7 +295,7 @@ def quantization_pipeline(
         mount_path=MOUNT_POINT,
     )
     use_secret_as_env(upload_model_task,
-                      secret_name="pipeline-s3-connection",
+                      secret_name=secret_name,
                       secret_key_to_env={'AWS_ACCESS_KEY_ID': 's3_access_key',
                                          'AWS_SECRET_ACCESS_KEY': 's3_secret_access_key',
                                          'AWS_S3_ENDPOINT': 's3_host',

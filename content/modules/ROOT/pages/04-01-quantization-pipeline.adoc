@@ -46,6 +46,7 @@ python quantization_pipeline.py
 ----
 [.bordershadow]
 image::04/04-compile-pipeline.png[]
+IMPORTANT: Before compiling the pipeline, if you have not use `Minio - models` as your dataconnection name, you need to adjust the line `secret_name = "minio-models"` to point to the actual name of your dataconnection, otherwise the upload-model task will fail to find the right secret. Note the spaces are removed and it is lowercase.
 
 This will generate a `quantization_pipeline.yaml` file. Download it to your local machine.
 [.bordershadow]
@@ -72,13 +73,18 @@ NOTE: This steps are detailed as Section 2.4. Go back to it if you need to.
 
 When running the pipeline, you can configure the following parameters:
 
-* `model_id`: The Hugging Face model ID (default: "ibm-granite/granite-3.2-2b-instruct")
-* `output_path`: Path for the quantized model (default: "granite-int8")
-* `quantization_type`: Type of quantization to perform (default: "int8")
-* `data_connection`: Data connection name for model storage (default: "aws-connection-models")
+* `model_id`: The Hugging Face model ID (default: `ibm-granite/granite-3.2-2b-instruct`)
+* `output_path`: Path for the quantized model (default: `granite-int8-pipeline`)
+* `quantization_type`: Type of quantization to perform (default: `int8`, options: `int4` or `int8`)
 
 [.bordershadow]
 image::04/04-pipeline-run.png[]
+
+After the execution of the pipeline you should have an optimized version uploaded to your S3 bucket
+[.bordershadow]
+image::04/04-pipeline-run-success.png[]
+[.bordershadow]
+image::04/04-pipeline-run-minio.png[]
 
 == Storage Requirements
 
