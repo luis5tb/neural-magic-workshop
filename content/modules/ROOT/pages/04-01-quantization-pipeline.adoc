@@ -30,7 +30,7 @@ Install the required dependencies:
 
 [source,bash]
 ----
-pip install kfp
+pip install kfp kfp_kubernetes
 ----
 [.bordershadow]
 image::04/04-install-kfp.png[]
@@ -49,6 +49,13 @@ image::04/04-compile-pipeline.png[]
 This will generate a `quantization_pipeline.yaml` file. Download it to your local machine.
 [.bordershadow]
 image::04/04-download-pipeline.png[]
+
+IMPORTANT: once you got the `quantization_pipeline.yaml` file and you no longer need the workbench, ensure you stop it so that the associated GPU gets freed and it can be utilized to serve the model or running the pipeline.
++
+[.bordershadow]
+image::03/03-workbench-done.png[]
+[.bordershadow]
+image::03/03-workbench-stop.png[]
 
 == Using the Pipeline
 
