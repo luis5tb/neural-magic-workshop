@@ -30,10 +30,11 @@ Install the required dependencies:
 
 [source,bash]
 ----
-pip install kfp kfp_kubernetes
+ip install -U kfp===2.9.0 kfp-kubernetes===1.3.0
 ----
 [.bordershadow]
 image::04/04-install-kfp.png[]
+NOTE: There is some inconsistency on the yaml generated depending on the versions, so please ensure you are using this ones
 
 == Compiling the Pipeline
 
