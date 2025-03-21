@@ -48,6 +48,7 @@ To compile the pipeline into a YAML file that can be imported into OpenShift AI:
 
 [source,bash]
 ----
+cd neural-magic-workshop/lab-materials/05/
 python quantization_pipeline.py
 ----
 [.bordershadow]
