@@ -36,9 +36,9 @@ The `lab-materials/` directory contains the different materials for the differen
 *** Weights quantization: `int4`
 *** Weights and activations quantization: `fp8` and `int8`
 * Section 4 (folder `04`):
-** Pipeline source file (`quantization_pipeline.py`) for optimizing models while maintaining accuracy, also includes evaluation steps.
-* Section 5 (folder `05`):
 ** Python script for testing deployed models: `request.py`
+* Section 5 (folder `05`):
+** Pipeline source file (`quantization_pipeline.py`) for optimizing models while maintaining accuracy, also includes evaluation steps.
 
 === Prerequisites
 

@@ -36,4 +36,4 @@ image::02/02-04-import-pipeline-create-run-params.png[]
 
 ** Click on the **Create run** button
 
-IMPORTANT: Do not trigger the run. This is just for documentation purposes, the pipeline to be triggerd will be generated on section 4
+IMPORTANT: Do not trigger the run. This is just for documentation purposes, the pipeline to be triggerd will be generated on section 5.

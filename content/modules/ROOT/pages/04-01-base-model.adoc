@@ -38,7 +38,7 @@ Now that the model is deployed, you can test it by sending a request to the mode
 
 === Environment Setup
 
-. Clone the repository ({git-clone-repo-url}) in your laptop and go to the folder with the lab material for this section (`neural-magic-workshop/lab-materials/03`)
+. Clone the repository ({git-clone-repo-url}) in your laptop and go to the folder with the lab material for this section (`neural-magic-workshop/lab-materials/04`)
 . Update the following variables in `request.py`:
 +
 [source,python]

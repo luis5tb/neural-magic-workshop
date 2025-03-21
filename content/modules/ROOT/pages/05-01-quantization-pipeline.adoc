@@ -22,13 +22,13 @@ The pipeline consists of the following stages:
 
 == Workbench Installation Instructions
 
-Create a terminal session:
-+
+We are going to reuse the workbench created at Section 3.
+
 NOTE: as you stopped the workbench you would need to start it again to use it to modify/compile the pipeline
-+
 [.bordershadow]
 image::03/03-workbench-done.png[]
 
+Inside it we create a terminal session:
 [.bordershadow]
 image::05/05-create-terminal.png[]
 
