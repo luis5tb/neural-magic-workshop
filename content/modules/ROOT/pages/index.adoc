@@ -68,14 +68,14 @@ a|- Hands-on: Step-by-step quantization of a model manually
 - Int8
 - fp8
 
-|45 - 65 min |Pipeline Creation & Deployment |Hands-On
-a|- Create an AI pipeline backed by MinIO
-- Import a pipeline YAML and trigger the pipeline with parameters
-
-|65 - 85 min |Deploy Base and Optimized Model |Hands-On
+|45 - 65 min |Deploy Base and Optimized Model |Hands-On
 a|- Deploy a base AI model using OpenShift AI ServingRuntime
 - Deploy a pre-optimized model from MinIO
 - Compare performance vs. base model
+
+|65 - 85 min |Pipeline Creation & Deployment |Hands-On
+a|- Create an AI pipeline backed by MinIO
+- Import a pipeline YAML and trigger the pipeline with parameters
 
 |85 - 90 min |Q&A + Wrap-Up |Hands-On
 a|- Recap learnings

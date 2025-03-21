@@ -1,20 +1,20 @@
-= Deploy and Test the Optimized Model
+= Deploy and Test the Base Model
 include::_attributes.adoc[]
 
-== Deploy the Optimized Model
-
-Now that we have the optimized models on the MinIO S3 bucket, lets deploy one of them.
+== Deploy the Base Model
 
 To deploy a model you need to go to the created Data Science Project (`{user}`) and:
 
-* Go to **Models** and click on **Deploy model**
+* Click on **Models** and select the **Single-model service platform** option
 +
 [.bordershadow]
-image::05/05-01-deploy.png[]
+image::04/04-01-single-model.png[]
+* Click on **Deploy model**
 +
-NOTE: Once single-model option has been selected for the Data Science project, there is no need to select that again, it gets annotated on the `namespace`.
+[.bordershadow]
+image::04/04-01-deploy.png[]
 * And fill the form with the required information:
-** Name: `optimized`
+** Name: `base`
 ** Serving runtime: `vLLM ServingRuntime for KServe`
 ** Model server size: `Small`
 ** Accelerator: `NVIDIA GPU`
@@ -22,16 +22,23 @@ NOTE: Once single-model option has been selected for the Data Science project, t
 ** Token authentication: select `Require token authetication` and leave the default **Service account name**
 ** Existing connection:
 *** Connection: `Minio - models`
-*** Path: `granite-int4` (you can choose also `granite-int8` or `granite-fp8`)
+*** Path: `base_model`
++
+[.bordershadow]
+image::04/04-01-model-inputs.png[]
 * Click on **Deploy** and wait for the model to be ready
++
+[.bordershadow]
+image::04/04-01-model-status.png[]
 
-== Test the Optimized Model
 
-Now that the optimized model is deployed, you can test it by sending a request to the model, and also checking the faster response time.
+== Test the Base Model
+
+Now that the model is deployed, you can test it by sending a request to the model, and also checking the time it takes to respond.
 
 === Environment Setup
 
-. In your already cloned repository ({git-clone-repo-url}) in your laptop, go to the folder with the lab material for this section (`neural-magic-workshop/lab-materials/03`)
+. Clone the repository ({git-clone-repo-url}) in your laptop and go to the folder with the lab material for this section (`neural-magic-workshop/lab-materials/03`)
 . Update the following variables in `request.py`:
 +
 [source,python]
@@ -43,24 +50,23 @@ API_KEY = "your-api-key"   // Replace with your API key
 
 To get the information from the deployed model to fill up those vars, you should use:
 
-* `optimized` as the model name
+* `base` as the model name
 * Copy the `token` for the API_KEY
 * Check the `internal and external endpoints details` of the deployed model for the URL. Use the **external endpoint**.
 +
 [.bordershadow]
-image::05/05-01-inference-endpoints.png[]
+image::04/04-01-inference-endpoints.png[]
 
 === Installation Steps
 
-. Activate the previously created Python virtual environment -- if not already active:
-+  
+. Create and activate a Python virtual environment:
++
 [source,bash]
 ----
 python -m venv venv
 source venv/bin/activate
 ----
-
-. Install the required dependency -- if not already installed in the virtual env:
+. Install the required dependency:
 +
 [source,bash]
 ----
@@ -87,8 +93,7 @@ This will execute the script and display:
 To remove the model simply click on the **Delete** on the **Models** tab
 
 IMPORTANT: You need to remove the model before going to the next step in order to have enough GPUs.
-+
 [.bordershadow]
-image::05/05-01-model-delete.png[]
+image::04/04-01-model-delete.png[]
 [.bordershadow]
-image::05/05-02-model-delete-optimized.png[]
+image::04/04-01-model-delete-base.png[]

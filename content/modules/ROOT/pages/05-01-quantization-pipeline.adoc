@@ -22,9 +22,15 @@ The pipeline consists of the following stages:
 
 == Workbench Installation Instructions
 
-Create a terminal session
+Create a terminal session:
++
+NOTE: as you stopped the workbench you would need to start it again to use it to modify/compile the pipeline
++
 [.bordershadow]
-image::04/04-create-terminal.png[]
+image::03/03-workbench-done.png[]
+
+[.bordershadow]
+image::05/05-create-terminal.png[]
 
 Install the required dependencies:
 
@@ -33,7 +39,7 @@ Install the required dependencies:
 pip install -U kfp===2.9.0 kfp-kubernetes===1.3.0
 ----
 [.bordershadow]
-image::04/04-install-kfp.png[]
+image::05/05-install-kfp.png[]
 NOTE: There is some inconsistency on the yaml generated depending on the versions, so please ensure you are using this ones
 
 == Compiling the Pipeline
@@ -45,12 +51,12 @@ To compile the pipeline into a YAML file that can be imported into OpenShift AI:
 python quantization_pipeline.py
 ----
 [.bordershadow]
-image::04/04-compile-pipeline.png[]
+image::05/05-compile-pipeline.png[]
 IMPORTANT: Before compiling the pipeline, if you have not use `Minio - models` as your dataconnection name, you need to adjust the line `secret_name = "minio-models"` to point to the actual name of your dataconnection, otherwise the upload-model task will fail to find the right secret. Note the spaces are removed and it is lowercase.
 
 This will generate a `quantization_pipeline.yaml` file. Download it to your local machine.
 [.bordershadow]
-image::04/04-download-pipeline.png[]
+image::05/05-download-pipeline.png[]
 
 IMPORTANT: once you got the `quantization_pipeline.yaml` file and you no longer need the workbench, ensure you stop it so that the associated GPU gets freed and it can be utilized to serve the model or running the pipeline.
 +
@@ -78,13 +84,13 @@ When running the pipeline, you can configure the following parameters:
 * `quantization_type`: Type of quantization to perform (default: `int8`, options: `int4` or `int8`)
 
 [.bordershadow]
-image::04/04-pipeline-run.png[]
+image::05/05-pipeline-run.png[]
 
 After the execution of the pipeline you should have an optimized version uploaded to your S3 bucket
 [.bordershadow]
-image::04/04-pipeline-run-success.png[]
+image::05/05-pipeline-run-success.png[]
 [.bordershadow]
-image::04/04-pipeline-run-minio.png[]
+image::05/05-pipeline-run-minio.png[]
 
 == Storage Requirements
 
