@@ -24,15 +24,15 @@ The pipeline consists of the following stages:
 
 We are going to reuse the workbench created at Section 3.
 
-NOTE: as you stopped the workbench you would need to start it again to use it to modify/compile the pipeline
+NOTE: As we stopped the workbench we need to start it again to use it to modify/compile the pipeline
 [.bordershadow]
 image::03/03-workbench-done.png[]
 
-Inside it we create a terminal session:
+Inside the workbench we create a terminal session:
 [.bordershadow]
 image::05/05-create-terminal.png[]
 
-Install the required dependencies:
+And install the required dependencies:
 
 [source,bash]
 ----
@@ -58,8 +58,7 @@ This will generate a `quantization_pipeline.yaml` file. Download it to your loca
 [.bordershadow]
 image::05/05-download-pipeline.png[]
 
-IMPORTANT: once you got the `quantization_pipeline.yaml` file and you no longer need the workbench, ensure you stop it so that the associated GPU gets freed and it can be utilized to serve the model or running the pipeline.
-+
+IMPORTANT: Once you got the `quantization_pipeline.yaml` file and you no longer need the workbench, ensure you stop it so that the associated GPU gets freed and it can be utilized to serve the model or running the pipeline.
 [.bordershadow]
 image::03/03-workbench-done.png[]
 [.bordershadow]
