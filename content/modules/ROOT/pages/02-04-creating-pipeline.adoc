@@ -11,6 +11,7 @@ image::02/02-04-import-pipeline.png[]
 
 * Give a name to the pipeline, like: `Optimization-Pipeline`
 * And upload the `test_pipeline.yaml` file
++
 NOTE: This file is at `neural-magic-workshop/lab-materials/02` folder, you can clone the repo or download the file from it so that you can upload it here.
 +
 [.bordershadow]
