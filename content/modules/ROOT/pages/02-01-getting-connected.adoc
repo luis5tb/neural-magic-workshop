@@ -17,8 +17,8 @@ If you're using the **customized version** of these instructions, the informatio
 
 . Open a new browser **window or tab**.
 . Navigate to the Red Hat OpenShift AI Dashboard:
-
-   👉 https://rhods-dashboard-redhat-ods-applications.{openshift_cluster_ingress_domain}/[https://rhods-dashboard-redhat-ods-applications.{openshift_cluster_ingress_domain}/,window=_blank]
++
+👉 https://rhods-dashboard-redhat-ods-applications.{openshift_cluster_ingress_domain}/[https://rhods-dashboard-redhat-ods-applications.{openshift_cluster_ingress_domain}/,window=_blank]
 
 . Log in using the credentials provided above.
 
