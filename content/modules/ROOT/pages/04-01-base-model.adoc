@@ -50,9 +50,9 @@ API_KEY = "your-api-key"   // Replace with your API key
 
 To get the information from the deployed model to fill up those vars, you should use:
 
-* The Model name (`base`) for the MODEL
-* Copy the `token` for the API_KEY
-* Check the `internal and external endpoints details` of the deployed model for the URL. Use the **external endpoint**.
+* The Model name (`base`) for the `MODEL`
+* Copy the `token` for the `API_KEY`
+* Check the `internal and external endpoints details` of the deployed model for the `URL`. Use the **external endpoint**.
 +
 [.bordershadow]
 image::04/04-01-inference-endpoints.png[]

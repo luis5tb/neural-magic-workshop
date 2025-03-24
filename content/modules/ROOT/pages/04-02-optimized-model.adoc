@@ -43,9 +43,9 @@ API_KEY = "your-api-key"   // Replace with your API key
 
 To get the information from the deployed model to fill up those vars, you should use:
 
-* The Model name (`optimized`) for the MODEL
-* Copy the `token` for the API_KEY
-* Check the `internal and external endpoints details` of the deployed model for the URL. Use the **external endpoint**.
+* The Model name (`optimized`) for the `MODEL`
+* Copy the `token` for the `API_KEY`
+* Check the `internal and external endpoints details` of the deployed model for the `URL`. Use the **external endpoint**.
 +
 [.bordershadow]
 image::04/04-01-inference-endpoints.png[]
@@ -86,7 +86,6 @@ This will execute the script and display:
 To remove the model simply click on the **Delete** on the **Models** tab
 
 IMPORTANT: You need to remove the model before going to the next step in order to have enough GPUs.
-+
 [.bordershadow]
 image::04/04-01-model-delete.png[]
 [.bordershadow]
