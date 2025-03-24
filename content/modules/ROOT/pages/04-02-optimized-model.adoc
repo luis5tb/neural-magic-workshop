@@ -43,7 +43,7 @@ API_KEY = "your-api-key"   // Replace with your API key
 
 To get the information from the deployed model to fill up those vars, you should use:
 
-* `optimized` as the model name
+* The Model name (`optimized`) for the MODEL
 * Copy the `token` for the API_KEY
 * Check the `internal and external endpoints details` of the deployed model for the URL. Use the **external endpoint**.
 +
@@ -56,7 +56,6 @@ image::04/04-01-inference-endpoints.png[]
 +  
 [source,bash]
 ----
-python -m venv venv
 source venv/bin/activate
 ----
 

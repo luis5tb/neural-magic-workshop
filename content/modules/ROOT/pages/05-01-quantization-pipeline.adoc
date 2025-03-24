@@ -89,6 +89,10 @@ image::05/05-pipeline-run.png[]
 After the execution of the pipeline you should have an optimized version uploaded to your S3 bucket
 [.bordershadow]
 image::05/05-pipeline-run-success.png[]
+
+You can check the MinIO S3 bucket at {minio_dashboard_url}. User and password as the same as for OpenShift AI.
+Check the bucket with name {user}.
+You should see the models optimized with the workbenches and the one with the pipeline.
 [.bordershadow]
 image::05/05-pipeline-run-minio.png[]
 

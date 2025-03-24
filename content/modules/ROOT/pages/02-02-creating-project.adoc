@@ -95,7 +95,7 @@ none
 +
 IMPORTANT: Once again, the bucket you will use has to match with the user ID you were provided
 
-* The result should look like:
+* The result should look similar to:
 +
 [.bordershadow]
 image::02/data-connection.png[]

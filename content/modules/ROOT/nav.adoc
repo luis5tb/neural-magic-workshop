@@ -24,7 +24,5 @@
 ** xref:05-01-quantization-pipeline.adoc[5.1 Quantization with Pipelines]
 ** xref:05-02-quantization-pipeline-exercise.adoc[5.2 Exercise]
 
-
-
 * 6. End of Lab
 ** xref:06-01-end-of-lab.adoc[6.1 Thanks]

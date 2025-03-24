@@ -50,7 +50,7 @@ API_KEY = "your-api-key"   // Replace with your API key
 
 To get the information from the deployed model to fill up those vars, you should use:
 
-* `base` as the model name
+* The Model name (`base`) for the MODEL
 * Copy the `token` for the API_KEY
 * Check the `internal and external endpoints details` of the deployed model for the URL. Use the **external endpoint**.
 +
@@ -58,6 +58,8 @@ To get the information from the deployed model to fill up those vars, you should
 image::04/04-01-inference-endpoints.png[]
 
 === Installation Steps
+
+Participants should ensure that Git and Python are installed and ready to use on their laptop. Then:
 
 . Create and activate a Python virtual environment:
 +

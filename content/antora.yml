@@ -20,7 +20,6 @@ asciidoc:
     #minio-pass: openshift
     #minio-endpoint: http://minio-service.wksp-userX.svc.cluster.local:9000/
     git-clone-repo-url: https://github.com/luis5tb/neural-magic-workshop.git
-    #git-clone-repo-url: https://github.com/luis5tb/openshift-commons-neural-magic.git
     git-clone-repo-branch: main
     user: userX
     password: openshift

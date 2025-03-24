@@ -22,12 +22,6 @@ In a new window or tab, open the following URL and log in:
 [.bordershadow]
 image::02/02-01-login1.png[width=50%]
 
-* Because the password is so simple (`{password}`), your browser might display a scary message such as:
-+
-[.bordershadow]
-image::02/02-01-login-scary.png[]
-* It is safe here to ignore this message when it pops up.
-
 * After you authenticate, the result should look like:
 +
 [.bordershadow]
