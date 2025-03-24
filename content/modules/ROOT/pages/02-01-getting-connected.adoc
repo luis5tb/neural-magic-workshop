@@ -1,32 +1,42 @@
-= Getting connected
+= 🔗 Getting Connected
 include::_attributes.adoc[]
 
-For the purposes of this training session, we have provisioned a single OpenShift cluster, with OpenShift AI deployed on it.
+For the purposes of this training session, we have provisioned a single OpenShift cluster with **Red Hat OpenShift AI (RHODS)** deployed.
 
-Each person attending this lab will have a unique user account in which to do their work.
+Each participant will receive a **unique user account** to complete the lab activities.
 
-== Environment information
 
-If you are using the customized version of the instructions, the information below will render properly. If not, you will see placeholder values instead.
+==  🌐 Environment Information
 
-* Your account id: `{user}`
-* Your password: `{password}`
+If you're using the **customized version** of these instructions, the information below will display correctly. If not, you may see placeholder values instead.
 
-In a new window or tab, open the following URL and log in:
+* **Your account ID:** `{user}`
+* **Your password:** `{password}`
 
-* The Red Hat OpenShift AI Dashboard URL for our shared environment:
-** https://rhods-dashboard-redhat-ods-applications.{openshift_cluster_ingress_domain}/[https://rhods-dashboard-redhat-ods-applications.{openshift_cluster_ingress_domain}/,window=_blank]
-* Enter your credentials (as detailed above)
-* The result should look like:
+=== Steps to Connect:
+
+. Open a new browser **window or tab**.
+. Navigate to the Red Hat OpenShift AI Dashboard:
+
+   👉 https://rhods-dashboard-redhat-ods-applications.{openshift_cluster_ingress_domain}/[https://rhods-dashboard-redhat-ods-applications.{openshift_cluster_ingress_domain}/,window=_blank]
+
+. Log in using the credentials provided above.
+
+== ✅ Expected Results
+
+* After logging in, you should see a screen like the following:
 +
 [.bordershadow]
 image::02/02-01-login1.png[width=50%]
 
-* After you authenticate, the result should look like:
+* Once logged in successfully, the main OpenShift AI Dashboard page should appear:
 +
 [.bordershadow]
 image::02/02-01-rhoai-front-page.png[]
 
-If you got this far and saw all that, congratulations, you properly connected to the OpenShift AI Dashboard Application!
+== 🎉 You're In!
 
-We are now ready to start the lab.
+If you've reached this point and everything looks good — **congratulations!**  
+You're successfully connected to the OpenShift AI Dashboard.
+
+Let’s get started with the lab! 🚀
