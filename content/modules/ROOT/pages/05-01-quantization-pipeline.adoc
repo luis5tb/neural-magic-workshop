@@ -53,13 +53,13 @@ python quantization_pipeline.py
 ----
 [.bordershadow]
 image::05/05-compile-pipeline.png[]
-IMPORTANT 🚨: Before compiling the pipeline, if you have not use `Minio - models` as your dataconnection name, you need to adjust the line `secret_name = "minio-models"` to point to the actual name of your dataconnection, otherwise the upload-model task will fail to find the right secret. Note the spaces are removed and it is lowercase.
+IMPORTANT: 🚨 Before compiling the pipeline, if you have not use `Minio - models` as your dataconnection name, you need to adjust the line `secret_name = "minio-models"` to point to the actual name of your dataconnection, otherwise the upload-model task will fail to find the right secret. Note the spaces are removed and it is lowercase.
 
 This will generate a `quantization_pipeline.yaml` file. Download it to your local machine.
 [.bordershadow]
 image::05/05-download-pipeline.png[]
 
-IMPORTANT 🚨: Once you got the `quantization_pipeline.yaml` file and you no longer need the workbench, ensure you stop it so that the associated GPU gets freed and it can be utilized to serve the model or running the pipeline.
+IMPORTANT: 🚨 Once you got the `quantization_pipeline.yaml` file and you no longer need the workbench, ensure you stop it so that the associated GPU gets freed and it can be utilized to serve the model or running the pipeline.
 [.bordershadow]
 image::03/03-workbench-done.png[]
 [.bordershadow]

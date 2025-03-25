@@ -6,7 +6,7 @@ include::_attributes.adoc[]
 * Once the Data Connection and Pipeline Server are fully created, it's time to create your workbench! 🎉
 +
 [.bordershadow]
-image::02/02-03-create-wb.png[]
+image::02/02-03-create-wb.png[width=75%]
 * Make sure it has the following characteristics:
 ** Choose a name for it, like: `My Workbench` 🌟
 ** Image Selection: `Minimal Python` or `Standard Data Science` 🐍

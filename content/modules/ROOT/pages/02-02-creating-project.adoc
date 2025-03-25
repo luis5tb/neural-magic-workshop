@@ -40,7 +40,7 @@ IMPORTANT: 🚨 Your assigned user is {user}. Don't mess that up or things will 
 [.bordershadow]
 image::02/02-02-create-project.png[]
 +
-IMPORTANT 🚫: It should **NOT** be `userX` like in the screenshot. (for you, `X` should be a number instead)
+IMPORTANT: 🚫 It should **NOT** be `userX` like in the screenshot. (for you, `X` should be a number instead)
 
 == 🌈 Create a Data Connection for the Pipeline Server
 
@@ -93,7 +93,7 @@ none
 [subs=attributes+]
 {user}
 +
-IMPORTANT 🚨: Once again, the bucket you will use has to match with the user ID you were provided!
+IMPORTANT: 🚨 Once again, the bucket you will use has to match with the user ID you were provided!
 
 * The result should look similar to:
 +

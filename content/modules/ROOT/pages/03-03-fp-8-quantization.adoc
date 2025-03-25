@@ -29,7 +29,7 @@ image::03/03-03-fp8-notebook.png[]
 
 When done, you can close the notebook and head to the next page.
 
-IMPORTANT 🚨: once you complete all the quantization exercises and you no longer need the workbench, ensure you stop it so that the associated GPU gets freed and it can be utilized to serve the model.
+IMPORTANT: 🚨 once you complete all the quantization exercises and you no longer need the workbench, ensure you stop it so that the associated GPU gets freed and it can be utilized to serve the model.
 [.bordershadow]
 image::03/03-workbench-done.png[]
 [.bordershadow]
