@@ -31,7 +31,7 @@ image::02/02-02-ds-proj-nav.png[]
 ** You have been assigned a unique user ID:  `{user}`
 ** You need to now create a project with the exact same name: `{user}`
 +
-IMPORTANT 🚨: Your assigned user is {user}. Don't mess that up or things will break later on!
+IMPORTANT: 🚨 Your assigned user is {user}. Don't mess that up or things will break later on!
 
 * Leave the resource name unchanged.
 * Optionally, enter your first and last name in the description of the project.
