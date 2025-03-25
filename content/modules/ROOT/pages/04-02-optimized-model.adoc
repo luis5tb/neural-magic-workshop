@@ -3,36 +3,41 @@ include::_attributes.adoc[]
 
 == Deploy the Optimized Model
 
-Now that we have the optimized models on the MinIO S3 bucket, lets deploy one of them.
+Now that we have the optimized models on the MinIO S3 bucket, let's deploy one of them.
 
-To deploy a model you need to go to the created Data Science Project (`{user}`) and:
+To deploy a model you need to go to the created Data Science Project (`{user}`) and follow the nextd steps:
 
-* Go to **Models** and click on **Deploy model**
+. **Navigate to Your Project**: Head over to your created Data Science Project and locate the **Models** section. 
+
+. **Deploy Your Model**: Click on the **Deploy model** button to start the deployment process.
 +
 [.bordershadow]
 image::04/04-01-deploy.png[]
 +
 NOTE: Once single-model option has been selected for the Data Science project, there is no need to select that again, it gets annotated on the `namespace`.
-* And fill the form with the required information:
-** Name: `optimized`
-** Serving runtime: `vLLM ServingRuntime for KServe`
-** Model server size: `Small`
-** Accelerator: `NVIDIA GPU`
-** Model route: select option to make model available through external route
-** Token authentication: select `Require token authetication` and leave the default **Service account name**
-** Existing connection:
-*** Connection: `Minio - models`
-*** Path: `granite-int4` (you can choose also `granite-int8` or `granite-fp8`)
-* Click on **Deploy** and wait for the model to be ready
+
+. **Fill Out the Deployment Form**: You’ll need to provide some essential information. Here’s what to enter:
+   * **Name**: `optimized`
+   * **Serving runtime**: `vLLM ServingRuntime for KServe`
+   * **Model server size**: `Small`
+   * **Accelerator**: `NVIDIA GPU`
+   * **Model route**: Select the option to make your model available through an external route.
+   * **Token authentication**: Choose `Require token authentication` and leave the default **Service account name**.
+   * **Existing connection**:
+   ** **Connection**: `Minio - models`
+   ** **Path**: `granite-int4` (you can choose also `granite-int8` or `granite-fp8`)
+
+. **Deploy and Wait**: After filling out the form, click on **Deploy**. Now, wait while your model gets ready. This might take a moment! ☕
 
 == Test the Optimized Model
 
-Now that the optimized model is deployed, you can test it by sending a request to the model, and also checking the faster response time.
+Now that the optimized model is deployed, it's time to put it to the test and compare it with the base mode. Get ready to send a request to your model and measure its response time.
 
 === Environment Setup
 
-. In your already cloned repository ({git-clone-repo-url}) in your laptop, go to the folder with the lab material for this section (`neural-magic-workshop/lab-materials/04`)
-. Update the following variables in `request.py`:
+.  **Lab material**: Open your terminal and go to the already cloned repository ({git-clone-repo-url}) in your laptop, go to the folder with the lab material for this section (`neural-magic-workshop/lab-materials/04`)
+
+. **Update Your Variables**: Open the `request.py` file and update the following variables to match your setup:
 +
 [source,python]
 ----
@@ -40,26 +45,24 @@ MODEL = "your-model-name"  // Replace with your model name
 URL = "your-api-url"       // Replace with your API endpoint
 API_KEY = "your-api-key"   // Replace with your API key
 ----
-
-To get the information from the deployed model to fill up those vars, you should use:
-
-* The Model name (`optimized`) for the `MODEL`
-* Copy the `token` for the `API_KEY`
-* Check the `internal and external endpoints details` of the deployed model for the `URL`. Use the **external endpoint**.
+To fill in these variables, use the information from your deployed model:
+- Set `MODEL` to the name of your model (`optimized`).
+- Copy the `token` for the `API_KEY`.
+- For the `URL`, check the `internal and external endpoints details` of your deployed model and use the **external endpoint**.
 +
 [.bordershadow]
 image::04/04-01-inference-endpoints.png[]
 
 === Installation Steps
 
-. Activate the previously created Python virtual environment -- if not already active:
+. **Activate a Virtual Environment**: Activate the previously created Python virtual environment -- if not already active:
 +  
 [source,bash]
 ----
 source venv/bin/activate
 ----
 
-. Install the required dependency -- if not already installed in the virtual env:
+. **Install the Required Dependency**: Install the required dependency if not already installed in the virtual env:
 +
 [source,bash]
 ----
@@ -68,24 +71,26 @@ pip install langchain_openai
 
 === Running the Script
 
-To run the script and measure execution time:
+ To run the script and measure its execution time, simply execute the following command in your terminal:
 [source,bash]
 ----
 time python request.py
 ----
 
-This will execute the script and display:
+Once you run the script, you’ll see some exciting output, including:
 
 * The script's output
 * Real time (wall clock time)
 * User CPU time
 * System CPU time
 
+This is your chance to see how well your model performs in comparison with the base model! 🚀
+
 === Remove model
 
-To remove the model simply click on the **Delete** on the **Models** tab
+When you're done testing, don’t forget to clean up. Simply click on the **Delete** button in the **Models** tab to remove the model. 
 
-🚨 IMPORTANT: You need to remove the model before going to the next step in order to have enough GPUs.
+🚨 **IMPORTANT**: Make sure to remove the model before proceeding to the next step to ensure you have enough GPUs available for your next tasks.
 [.bordershadow]
 image::04/04-01-model-delete.png[]
 [.bordershadow]
