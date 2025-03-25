@@ -8,6 +8,32 @@ You will learn how to achieve significant performance improvements and cost redu
 
 The information, code, pipelines and techniques it contains are illustrations of what a first prototype could look like.
 
+== Lab Walkthrough
+
+This lab is designed to provide you with a structured approach to understanding and utilizing the tools and techniques essential for AI Model optimization. Below is an overview of the key activities you will engage in:
+
+* Get Familiar with *OpenShift AI*
+  ** Explore the capabilities of OpenShift AI, which will serve as the foundation for your data science projects.
+  ** Create Data Science Projects: Establish your own Data Science project to organize and manage your work effectively.
+  ** Create Data Connections: Learn how to connect various data sources, ensuring that your projects has access to the necessary information.
+  ** Create Pipeline Servers: Set up a pipeline server, which is crucial for managing and executing your workflows efficiently.
+  ** Create Workbenches: Access your workbench, a dedicated space for reviewing content, running experiments, and collaborating with peers.
+  ** Define Pipelines: Design the pathways through which your data will flow, optimizing each step of the process.
+
+* Optimize Models with *llm-compressor*
+  ** Engage in the optimization process by utilizing the *llm-compressor* to enhance your models.
+  ** Through Workbenches and Pipelines
+  ** Apply optimization techniques directly within your workbench and pipelines to improve model performance.
+
+* Evaluate Models with *lm-eval*
+  ** Assess the effectiveness of your models using *lm-eval*. This evaluation will provide insights into their performance and areas for improvement.
+
+* Deploy Models with *vLLM* (ServingRuntime)
+  ** Deploy your models using *vLLM*, with and without optimization.
+  ** Compare the performance of your base model against the optimized version to understand the impact of your efforts.
+
+This walkthrough is designed to equip you with the necessary skills and knowledge to start in your AI optimization projects. We encourage you to engage fully with each step as you progress through the workshop.
+
 == Disclaimer
 
 This lab is an example of what a customer could use to optimize its models for enhanced inferencing while reducing hardware costs using OpenShift AI.
