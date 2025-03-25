@@ -31,7 +31,7 @@ image::02/02-02-ds-proj-nav.png[]
 ** You have been assigned a unique user ID:  `{user}`
 ** You need to now create a project with the exact same name: `{user}`
 +
-🚨 IMPORTANT: Your assigned user is {user}. Don't mess that up or things will break later on!
+IMPORTANT 🚨: Your assigned user is {user}. Don't mess that up or things will break later on!
 
 * Leave the resource name unchanged.
 * Optionally, enter your first and last name in the description of the project.
@@ -40,7 +40,7 @@ image::02/02-02-ds-proj-nav.png[]
 [.bordershadow]
 image::02/02-02-create-project.png[]
 +
-🚫 IMPORTANT: It should **NOT** be `userX` like in the screenshot. (for you, `X` should be a number instead)
+IMPORTANT 🚫: It should **NOT** be `userX` like in the screenshot. (for you, `X` should be a number instead)
 
 == 🌈 Create a Data Connection for the Pipeline Server
 
@@ -93,7 +93,7 @@ none
 [subs=attributes+]
 {user}
 +
-🚨 IMPORTANT: Once again, the bucket you will use has to match with the user ID you were provided!
+IMPORTANT 🚨: Once again, the bucket you will use has to match with the user ID you were provided!
 
 * The result should look similar to:
 +
