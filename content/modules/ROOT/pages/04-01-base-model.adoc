@@ -45,11 +45,11 @@ Congratulations on successfully deploying your model! 🎉 Now, it's time to put
 
 Let's set up your environment. Follow these steps to get everything ready:
 
-. **Clone the Repository**: Open your terminal and clone the repository using the following command:
+. **Clone the Repository**: Open your terminal and clone the repository using the following command: ``
 +
 [source,bash]
 ----
-git clone {git-clone-repo-url}
+git clone https://github.com/luis5tb/neural-magic-workshop.git
 ----
 Navigate to the folder containing the lab materials for this section:
 +
@@ -115,7 +115,7 @@ This is your chance to see how well your model performs! 🚀
 
 When you're done testing, don’t forget to clean up. Simply click on the **Delete** button in the **Models** tab to remove the model. 
 
-**IMPORTANT** 🚨: Make sure to remove the model before proceeding to the next step to ensure you have enough GPUs available for your next tasks.
+IMPORTANT: 🚨 Make sure to remove the model before proceeding to the next step to ensure you have enough GPUs available for your next tasks.
 [.bordershadow]
 image::04/04-01-model-delete.png[]
 [.bordershadow]

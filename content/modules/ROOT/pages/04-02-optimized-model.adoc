@@ -71,7 +71,7 @@ pip install langchain_openai
 
 === Running the Script
 
- To run the script and measure its execution time, simply execute the following command in your terminal:
+To run the script and measure its execution time, simply execute the following command in your terminal:
 [source,bash]
 ----
 time python request.py
@@ -90,7 +90,7 @@ This is your chance to see how well your model performs in comparison with the b
 
 When you're done testing, don’t forget to clean up. Simply click on the **Delete** button in the **Models** tab to remove the model. 
 
-**IMPORTANT** 🚨: Make sure to remove the model before proceeding to the next step to ensure you have enough GPUs available for your next tasks.
+IMPORTANT: 🚨 Make sure to remove the model before proceeding to the next step to ensure you have enough GPUs available for your next tasks.
 [.bordershadow]
 image::04/04-01-model-delete.png[]
 [.bordershadow]
