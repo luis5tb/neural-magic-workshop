@@ -1,24 +1,23 @@
-= Creating a workbench
+= 🛠️ Creating a Workbench
 include::_attributes.adoc[]
 
-== Launch a Workbench
+== 🚀 Launch a Workbench
 
-* Once the Data Connection and Pipeline Server are fully created
-* Create a workbench
+* Once the Data Connection and Pipeline Server are fully created, it's time to create your workbench! 🎉
 +
 [.bordershadow]
 image::02/02-03-create-wb.png[]
 * Make sure it has the following characteristics:
-** Choose a name for it, like: `My Workbench`
-** Image Selection: `Minimal Python` or `Standard Data Science`
-** Container Size: `Medium`
-** Accelerator: `NVIDIA-GPU`
+** Choose a name for it, like: `My Workbench` 🌟
+** Image Selection: `Minimal Python` or `Standard Data Science` 🐍
+** Container Size: `Medium` 📦
+** Accelerator: `NVIDIA-GPU` 💻
 * That should look like:
 +
 [.bordershadow]
 image::02/02-02-launch-workbench-01.png[]
-* You should not need to modify any other Workbench settings (such as Storage)
-* Add the created DataConnection by clicking at the Connections section on **Attach existing connections**. And then **Attach** the created **Minio - models**
+* You should not need to modify any other Workbench settings (such as Storage).
+* Add the created Data Connection by clicking on the Connections section and selecting **Attach existing connections**. Then, click **Attach** for the created **Minio - models** connection. 🔗
 +
 [.bordershadow]
 image::02/02-03-add-dc.png[]
@@ -26,27 +25,27 @@ image::02/02-03-add-dc.png[]
 [.bordershadow]
 image::02/02-03-attach-dc.png[]
 
-* Then click on **Create workbench** and wait for your workbench to be fully started
-* Once it is, click the **Open** Link to connect to it.
+* Then, click on **Create Workbench** and wait for your workbench to be fully started. ⏳
+* Once it is, click the **Open** link to connect to it! 🔗
 +
 [.bordershadow]
 image::02/02-03-open-link.png[]
 
-* Authenticate with the same credentials as earlier
+* Authenticate with the same credentials as earlier. 🔑
 * You will be asked to accept the following settings:
 +
 [.bordershadow]
 image::02/02-02-accept.png[]
 
-* Do so
+* Go ahead and do so! 👍
 * You should now see this:
 +
 [.bordershadow]
 image::02/02-02-jupyter.png[]
 
-== Git-Clone the common repo
+== 🌟 Git-Clone the Common Repo
 
-We will clone the content of our Git repo so that you can access all the materials that were created as part of our prototyping exercise.
+We will clone the content of our Git repo so that you can access all the materials created as part of our prototyping exercise. 📚
 
 * Using the Git UI:
 ** Open the Git UI in Jupyter:
@@ -66,4 +65,4 @@ image::02/git-clone-1.png[]
 [.bordershadow]
 image::02/git-clone-2.png[]
 
-At this point, your project is ready for the work we want to do in it.
+At this point, your project is ready for the work we want to do in it. Let’s get started! 🚀
