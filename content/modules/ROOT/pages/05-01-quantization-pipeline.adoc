@@ -105,6 +105,7 @@ And click on the **Create run** button. After the execution of the pipeline you 
 image::05/05-pipeline-run-success.png[]
 
 You can check the MinIO S3 bucket at {minio_dashboard_url} or with the link at the top right corner. User and password as the same as for OpenShift AI.
+[]
 image::05/05-minio-link.png[width=50%]
 
 Check the bucket with name `{user}`.
