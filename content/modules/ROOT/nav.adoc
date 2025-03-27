@@ -9,7 +9,7 @@
 ** xref:02-01-getting-connected.adoc[2.1 Getting connected]
 ** xref:02-02-creating-project.adoc[2.2 Creating your project and pipeline server]
 ** xref:02-03-creating-workbench.adoc[2.3 Creating your workbench]
-** xref:02-04-creating-pipeline.adoc[2.4 Creating your pipeline]
+// ** xref:02-04-creating-pipeline.adoc[2.4 Creating your pipeline]
 
 * 3. Workbench: Working with LLM Compressor
 ** xref:03-01-int-4-quantization.adoc[3.1 Weights Only Quantization (INT-4)]

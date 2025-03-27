@@ -16,7 +16,7 @@ The pipeline consists of the following stages:
 == Prerequisites
 
 * Python 3.12
-* Kubeflow Pipelines SDK (`kfp`)
+* Kubeflow Pipelines SDK (`kfp` and `kfp_kubernetes`)
 * Access to OpenShift AI (formerly Red Hat OpenShift Data Science)
 * S3-compatible storage data connection configured in OpenShift AI
 
@@ -65,26 +65,43 @@ image::03/03-workbench-done.png[]
 [.bordershadow]
 image::03/03-workbench-stop.png[]
 
-== Using the Pipeline
+== 🚀 Running Your Pipeline
 
-1. Log into your OpenShift AI instance
-2. Navigate to "Data Science Pipelines" → "Pipelines"
-3. Click "Import Pipeline"
-4. Enter a "name" and choose "Upload file" and select the generated `quantization_pipeline.yaml`
-5. Click "Import pipeline"
+The steps to import and launch a pipeline, once you have a configured pipeline server, are the following:
 
-NOTE: This steps are detailed as Section 2.4. Go back to it if you need to.
+. Log into your OpenShift AI instance.
+. Navigate to **Data Science Pipelines** → **Pipelines**.
+. Click **Import Pipeline**.
++
+[.bordershadow]
+image::02/02-04-import-pipeline.png[]
+. Enter a **pipeline name** for the pipeline, like: `Optimization Pipeline`.
+. Choose **Upload** and upload the generated `quantization_pipeline.yaml` file.
++
+[.bordershadow]
+image::02/02-04-import-pipeline-select.png[]
+. Once the pipeline file is uploaded, click **Import pipeline**
+. You can now see the graph of the imported pipeline
++
+[.bordershadow]
+image::02/02-04-import-pipeline-graph.png[]
 
 === Pipeline Parameters
 
-When running the pipeline, you can configure the following parameters:
+To trigger the pipeline, click on the **Actions** button and then **Create run**
+[.bordershadow]
+image::02/02-04-import-pipeline-create-run.png[]
+
+Then fill in the form with the configurable parameters:
 
 * `model_id`: The Hugging Face model ID (default: `ibm-granite/granite-3.2-2b-instruct`)
 * `output_path`: Path for the quantized model (default: `granite-int8-pipeline`)
 * `quantization_type`: Type of quantization to perform (default: `int8`, options: `int4` or `int8`)
-
 [.bordershadow]
-image::05/05-pipeline-run.png[]
+image::02/02-04-import-pipeline-create-run-params.png[]
+
+** Click on the **Create run** button
+
 
 After the execution of the pipeline you should have an optimized version uploaded to your S3 bucket
 [.bordershadow]
@@ -110,9 +127,9 @@ Make sure your cluster has the appropriate storage class available.
 
 Before running the pipeline:
 
-1. Create a data connection in OpenShift AI pointing to your (MinIO) S3 storage. You can reuse the one created at Section 2.2 (**Minio - models**)
+1. Create a data connection in OpenShift AI pointing to your (MinIO) S3 storage. In the above example we reused the one created at Section 2.2 (**Minio - models**)
 2. The data connection has the next mandatory fields:
-* Connection name: pipeline-s3-connection
+* Connection name: minio-models (harcoded in the source pipeline file)
 * Access Key
 * Secret Key
 * Endpoint
