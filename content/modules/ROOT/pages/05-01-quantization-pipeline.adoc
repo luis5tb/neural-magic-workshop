@@ -75,13 +75,12 @@ The steps to import and launch a pipeline, once you have a configured pipeline s
 +
 [.bordershadow]
 image::02/02-04-import-pipeline.png[]
-. Enter a **pipeline name** for the pipeline, like: `Optimization Pipeline`.
+. Enter a **Pipeline name** for the pipeline, like: `Optimization Pipeline`.
 . Choose **Upload** and upload the generated `quantization_pipeline.yaml` file.
 +
 [.bordershadow]
 image::02/02-04-import-pipeline-select.png[]
-. Once the pipeline file is uploaded, click **Import pipeline**
-. You can now see the graph of the imported pipeline
+. Once the pipeline file is uploaded, click **Import pipeline**. You can now see the graph of the imported pipeline
 +
 [.bordershadow]
 image::02/02-04-import-pipeline-graph.png[]
@@ -97,13 +96,11 @@ Then fill in the form with the configurable parameters:
 * `model_id`: The Hugging Face model ID (default: `ibm-granite/granite-3.2-2b-instruct`)
 * `output_path`: Path for the quantized model (default: `granite-int8-pipeline`)
 * `quantization_type`: Type of quantization to perform (default: `int8`, options: `int4` or `int8`)
++
 [.bordershadow]
 image::02/02-04-import-pipeline-create-run-params.png[]
 
-** Click on the **Create run** button
-
-
-After the execution of the pipeline you should have an optimized version uploaded to your S3 bucket
+And click on the **Create run** button. After the execution of the pipeline you should have an optimized version uploaded to your S3 bucket
 [.bordershadow]
 image::05/05-pipeline-run-success.png[]
 
