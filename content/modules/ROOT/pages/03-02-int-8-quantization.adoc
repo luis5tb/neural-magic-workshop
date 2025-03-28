@@ -1,8 +1,10 @@
-= Weights and Activation Quantization (INT-8)
+= Weights and Activation Quantization (INT8)
 include::_attributes.adoc[]
 
 In this exercise, we will use a notebook to investigate how LLMs weights and activations can be quantized to INT8 for memory savings and inference acceleration.
 This quantization method is particularly useful for reducing model size while maintaining good performance.
+
+IMPORTANT: 🚨 The time for the workshop is limited, so doing the three quantization techniques may take too much time. Please only do one of the INT versions (INT4 or INT8) and then FP8 which is fast as it does not need calibration data. So, either skip this section or section 3.1.
 
 == Quantization Process
 

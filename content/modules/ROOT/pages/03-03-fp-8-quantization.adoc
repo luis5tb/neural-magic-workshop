@@ -1,4 +1,4 @@
-= Weights and Activation Quantization (FP-8)
+= Weights and Activation Quantization (FP8)
 include::_attributes.adoc[]
 
 In this exercise, we will use a notebook to investigate how LLMs weights and actications can be quantized to FP8 for memory savings and inference acceleration.

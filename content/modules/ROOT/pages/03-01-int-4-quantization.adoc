@@ -1,8 +1,10 @@
-= Weights Only Quantization (INT-4)
+= Weights Only Quantization (INT4)
 include::_attributes.adoc[]
 
 In this exercise, we will use a notebook to investigate how LLMs weights can be quantized to INT4 for memory savings and inference acceleration.
 This quantization method is particularly useful for reducing model size and maintaining low latency in workloads with low queries per second (QPS).
+
+IMPORTANT: 🚨 The time for the workshop is limited, so doing the three quantization techniques may take too much time. Please only do one of the INT versions (INT4 or INT8) and then FP8 which is fast as it does not need calibration data. So, either skip this section or section 3.2.
 
 == Quantization Process
 

@@ -12,9 +12,9 @@
 // ** xref:02-04-creating-pipeline.adoc[2.4 Creating your pipeline]
 
 * 3. Workbench: Working with LLM Compressor
-** xref:03-01-int-4-quantization.adoc[3.1 Weights Only Quantization (INT-4)]
-** xref:03-02-int-8-quantization.adoc[3.2 Weights and Activation Quantization (INT-8)]
-** xref:03-03-fp-8-quantization.adoc[3.3 Weights and Activation Quantization (FP-8)]
+** xref:03-01-int-4-quantization.adoc[3.1 Weights Only Quantization (INT4)]
+** xref:03-02-int-8-quantization.adoc[3.2 Weights and Activation Quantization (INT8)]
+** xref:03-03-fp-8-quantization.adoc[3.3 Weights and Activation Quantization (FP8)]
 
 * 4. Model Performance ComparisonImage Processing
 ** xref:04-01-base-model.adoc[4.1 Serving Base Models]
