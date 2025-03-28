@@ -88,18 +88,18 @@ a|- What is OpenShift AI? (Portfolio overview)
 a|- Guide participants through demo.redhat.com setup
 - Explain workshop environment & MinIO storage
 
-|25 - 45 min |Workbench Creation & Model Quantization |Hands-On
+|25 - 55 min |Workbench Creation & Model Quantization |Hands-On
 a|- Hands-on: Step-by-step quantization of a model manually
 - Int4
 - Int8
 - fp8
 
-|45 - 65 min |Deploy Base and Optimized Model |Hands-On
+|55 - 75 min |Deploy Base and Optimized Model |Hands-On
 a|- Deploy a base AI model using OpenShift AI ServingRuntime
 - Deploy a pre-optimized model from MinIO
 - Compare performance vs. base model
 
-|65 - 85 min |Pipeline Creation & Deployment |Hands-On
+|75 - 85 min |Pipeline Creation & Deployment |Hands-On
 a|- Create an AI pipeline backed by MinIO
 - Import a pipeline YAML and trigger the pipeline with parameters
 
