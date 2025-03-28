@@ -4,6 +4,7 @@ include::_attributes.adoc[]
 == 🚀 Launch a Workbench
 
 * Once the Data Connection and Pipeline Server are fully created, it's time to create your workbench! 🎉
+* Go to **Data Science Projects**, select your previously created project (`{user}`), and click on **Create a workbench**
 +
 [.bordershadow]
 image::02/02-03-create-wb.png[]
@@ -16,7 +17,6 @@ image::02/02-03-create-wb.png[]
 +
 [.bordershadow]
 image::02/02-02-launch-workbench-01.png[]
-* You should not need to modify any other Workbench settings (such as Storage).
 * Add the created Data Connection by clicking on the Connections section and selecting **Attach existing connections**. Then, click **Attach** for the created **Minio - models** connection. 🔗
 +
 [.bordershadow]
@@ -25,6 +25,7 @@ image::02/02-03-add-dc.png[]
 [.bordershadow]
 image::02/02-03-attach-dc.png[]
 
+* You should not need to modify any other Workbench settings (such as Storage).
 * Then, click on **Create Workbench** and wait for your workbench to be fully started. ⏳
 * Once it is, click the **Open** link to connect to it! 🔗
 +

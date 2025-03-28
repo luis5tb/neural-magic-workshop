@@ -24,7 +24,7 @@ The pipeline consists of the following stages:
 
 We are going to reuse the workbench created at Section 3.
 
-NOTE: As we stopped the workbench we need to start it again to use it to modify/compile the pipeline
+NOTE: As we stopped the workbench we need to **start** it again to use it to modify/compile the pipeline
 [.bordershadow]
 image::03/03-workbench-done.png[]
 
@@ -93,6 +93,7 @@ image::02/02-04-import-pipeline-create-run.png[]
 
 Then fill in the form with the configurable parameters:
 
+* Add a **Name** for the run, e.g.: `optimize-test`.
 * `model_id`: The Hugging Face model ID (default: `ibm-granite/granite-3.2-2b-instruct`)
 * `output_path`: Path for the quantized model (default: `granite-int8-pipeline`)
 * `quantization_type`: Type of quantization to perform (default: `int8`, options: `int4` or `int8`)
