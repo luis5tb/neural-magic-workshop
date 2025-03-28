@@ -22,7 +22,7 @@ Sparsification is a technique that removes unnecessary weights from AI models, r
 * Structured pruning: Removes entire neurons or channels
 * Dynamic sparse training: Trains models to be sparse from the beginning
 
-link:https://docs.neuralmagic.com/guides/sparsification/[Learn more about sparsification]
+https://docs.neuralmagic.com/guides/sparsification/[Learn more about sparsification^]
 
 === Quantization
 
@@ -41,7 +41,7 @@ Quantization converts high-precision model parameters into lower-precision repre
 * Quantization-aware training (QAT): Incorporates quantization during training
 * Dynamic quantization: Applied at runtime
 
-link:https://docs.vllm.ai/en/latest/features/quantization/index.html[Learn more about quantization]
+https://docs.vllm.ai/en/latest/features/quantization/index.html[Learn more about quantization^]
 
 === Knowledge Distillation
 

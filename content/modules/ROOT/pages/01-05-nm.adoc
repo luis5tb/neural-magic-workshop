@@ -18,7 +18,7 @@ DeepSparse is Neural Magic's inference engine that maximizes CPU efficiency for 
 * Seamlessly integrates with *Red Hat OpenShift AI*
 * Achieves GPU-class performance on commodity CPU hardware
 
-link:https://neuralmagic.com/deepsparse/[Learn more about DeepSparse]
+https://neuralmagic.com/deepsparse/[Learn more about DeepSparse^]
 
 === LLM-Compressor: Specialized LLM Optimization
 
@@ -59,7 +59,7 @@ image::01/01-05-llm-compressor.png[]
 ** 2-10x inference speedup on CPU
 ** Minimal accuracy loss with optimized techniques
 
-link:https://github.com/vllm-project/llm-compressor[Explore LLM-Compressor on GitHub]
+https://github.com/vllm-project/llm-compressor[Explore LLM-Compressor on GitHub^]
 
 === vLLM Integration: Efficient Large Language Model Processing
 
@@ -107,10 +107,10 @@ vLLM is a high-performance, memory-efficient inference and serving engine for La
 ** Compatible with popular frameworks like LangChain and LlamaIndex
 ** Supports both offline batch inference and online serving
 
-link:https://vllm.ai/[Learn more about vLLM] +
-link:https://docs.vllm.ai/en/latest/[vLLM Documentation] +
-link:https://github.com/vllm-project/vllm[vLLM GitHub Repository] +
-link:https://neuralmagic.com/nm-vllm/[Learn more about Neural Magic's vLLM integration]
+https://vllm.ai/[Learn more about vLLM^] +
+https://docs.vllm.ai/en/latest/[vLLM Documentation^] +
+https://github.com/vllm-project/vllm[vLLM GitHub Repository^] +
+https://neuralmagic.com/nm-vllm/[Learn more about Neural Magic's vLLM integration^]
 
 == Neural Magic and Red Hat AI
 
@@ -129,8 +129,8 @@ Neural Magic's AI optimizations complement *Red Hat OpenShift AI* and *RHEL AI*,
 
 == Additional Resources
 
-* link:https://neuralmagic.com/[Neural Magic Homepage]
-* link:https://neuralmagic.com/blog/[Neural Magic Blog]
-* link:https://github.com/neuralmagic/deepsparse[DeepSparse GitHub]
-* link:https://github.com/vllm-project/llm-compressor[LLM-Compressor GitHub]
-* link:https://github.com/vllm-project/vllm[vLLM GitHub] 
+* https://neuralmagic.com/[Neural Magic Homepage^]
+* https://neuralmagic.com/blog/[Neural Magic Blog^]
+* https://github.com/neuralmagic/deepsparse[DeepSparse GitHub^]
+* https://github.com/vllm-project/llm-compressor[LLM-Compressor GitHub^]
+* https://github.com/vllm-project/vllm[vLLM GitHub^]
