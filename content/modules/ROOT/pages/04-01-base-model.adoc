@@ -41,25 +41,34 @@ image::04/04-01-model-status.png[]
 
 Congratulations on successfully deploying your model! 🎉 Now, it's time to put it to the test. Get ready to send a request to your model and measure its response time. Let's dive in!
 
-=== Environment Setup
 
-Let's set up your environment. Follow these steps to get everything ready:
+=== Workbench Setup
 
-. **Clone the Repository**: Open your terminal and clone the repository using the following command: ``
-+
-[source,bash]
-----
-git clone https://github.com/luis5tb/neural-magic-workshop.git
-----
-Navigate to the folder containing the lab materials for this section:
-+
-[source,bash]
-----
-cd neural-magic-workshop/lab-materials/04
-----
+Similarly to Section 2.3, go to **Data Science Projects**, select your previously created project (`{user}`), and:
 
-. **Update Your Variables**: Open the `request.py` file and update the following variables to match your setup:
+* Click on **Create a workbench** to create a new workbench, named `terminal`. This time without attaching any GPU. Also, the `small` size should be enough.
 +
+[.bordershadow]
+image::04/04-wb-list.png[]
+[.bordershadow]
+image::04/04-wb-creation.png[]
+[.bordershadow]
+image::04/04-wb-ready.png[]
+
+* Open the `terminal` workbench and create a terminal inside.
++
+[.bordershadow]
+image::04/04-wb-terminal.png[]
+
+* **Clone the repository** `{git-clone-repo-url}` and go to the `neural-magic-workshop/lab-materials/04` folder.
++
+[.bordershadow]
+image::04/04-wb-clone.png[]
+
+* **Update Your Variables**: Open the `request.py` file and update the following variables to match your setup:
++
+[.bordershadow]
+image::04/04-wb-request.png[]
 [source,python]
 ----
 MODEL = "your-model-name"  # Replace with your model name
@@ -67,6 +76,7 @@ URL = "your-api-url"       # Replace with your API endpoint
 API_KEY = "your-api-key"   # Replace with your API key
 ----
 To fill in these variables, use the information from your deployed model:
+
 * Set `MODEL` to the name of your model (`base`).
 * Copy the model server `token` for the `API_KEY`.
 +
@@ -77,20 +87,7 @@ image::04/04-01-inference-token.png[]
 [.bordershadow]
 image::04/04-01-inference-endpoints.png[]
 
-=== Installation Steps
-
-Before we run the script, ensure you have Git and Python installed. If you’re all set, let’s create a Python virtual environment to keep things tidy:
-
-. **Create and Activate a Virtual Environment**:
-+
-[source,bash]
-----
-python -m venv venv
-source venv/bin/activate
-----
-
-. **Install the Required Dependency**: Now, let’s install the necessary package to interact with your model:
-+
+**Install the Required Dependency**: Now, let’s install the necessary package to interact with your model:
 [source,bash]
 ----
 pip install langchain_openai
@@ -98,7 +95,7 @@ pip install langchain_openai
 
 === Running the Script
 
-You’re almost there! To run the script and measure its execution time, simply execute the following command in your terminal:
+You’re almost there! To run the script and measure its execution time, simply execute the following command in the terminal:
 [source,bash]
 ----
 time python request.py
@@ -110,6 +107,9 @@ Once you run the script, you’ll see some exciting output, including:
 * Real time (wall clock time)
 * User CPU time
 * System CPU time
++
+[.bordershadow]
+image::04/04-request-base.png[]
 
 This is your chance to see how well your model performs! 🚀
 

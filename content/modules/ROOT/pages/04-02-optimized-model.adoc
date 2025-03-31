@@ -33,11 +33,12 @@ NOTE: Once single-model option has been selected for the Data Science project, t
 
 Now that the optimized model is deployed, it's time to put it to the test and compare it with the base mode. Get ready to send a request to your model and measure its response time.
 
-=== Environment Setup
+=== Workbench Setup
 
-.  **Lab material**: Open your terminal and go to the already cloned repository ({git-clone-repo-url}) in your laptop, go to the folder with the lab material for this section (`neural-magic-workshop/lab-materials/04`)
+We are going to reuse the workbench created in Section 4.1.
 
-. **Update Your Variables**: Open the `request.py` file and update the following variables to match your setup:
+* Go back to the `terminal` workbench created in Section 4.1
+* **Update Your Variables**: Open the `request.py` file and update the following variables to match your setup:
 +
 [source,python]
 ----
@@ -46,26 +47,17 @@ URL = "your-api-url"       // Replace with your API endpoint
 API_KEY = "your-api-key"   // Replace with your API key
 ----
 To fill in these variables, use the information from your deployed model:
-* Set `MODEL` to the name of your model (`optimized`).
-* Copy the model server `token` for the `API_KEY`.
+** Set `MODEL` to the name of your model (`optimized`).
+** Copy the model server `token` for the `API_KEY`.
 +
 [.bordershadow]
 image::04/04-01-inference-token.png[]
-* For the `URL`, check the `internal and external endpoints details` of your deployed model and use the **external endpoint**.
+** For the `URL`, check the `internal and external endpoints details` of your deployed model and use the **external endpoint**.
 +
 [.bordershadow]
 image::04/04-01-inference-endpoints.png[]
 
-=== Installation Steps
-
-. **Activate a Virtual Environment**: Activate the previously created Python virtual environment -- if not already active:
-+  
-[source,bash]
-----
-source venv/bin/activate
-----
-
-. **Install the Required Dependency**: Install the required dependency if not already installed in the virtual env:
+* The required dependencies should already be installed from the previous Section, but if not install the next package:
 +
 [source,bash]
 ----
@@ -86,6 +78,9 @@ Once you run the script, you’ll see some exciting output, including:
 * Real time (wall clock time)
 * User CPU time
 * System CPU time
++
+[.bordershadow]
+image::04/04-request-optimized.png[]
 
 This is your chance to see how well your model performs in comparison with the base model! 🚀
 
