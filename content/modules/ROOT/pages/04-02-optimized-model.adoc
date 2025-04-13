@@ -1,7 +1,7 @@
 = Deploy and Test the Optimized Model
 include::_attributes.adoc[]
 
-== Deploy the Optimized Model
+== Deploy the Optimized Model with VLLM
 
 Now that we have the optimized models on the MinIO S3 bucket, let's deploy one of them.
 

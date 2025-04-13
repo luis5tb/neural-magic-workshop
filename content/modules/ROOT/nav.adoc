@@ -11,16 +11,16 @@
 ** xref:02-03-creating-workbench.adoc[2.3 Creating your workbench]
 // ** xref:02-04-creating-pipeline.adoc[2.4 Creating your pipeline]
 
-* 3. Workbench: Working with LLM Compressor
+* 3. LLM Compressor: Using Workbench to Quantize Models
 ** xref:03-01-int-4-quantization.adoc[3.1 Weights Only Quantization (INT4)]
 ** xref:03-02-int-8-quantization.adoc[3.2 Weights and Activation Quantization (INT8)]
 ** xref:03-03-fp-8-quantization.adoc[3.3 Weights and Activation Quantization (FP8)]
 
-* 4. Model Performance ComparisonImage Processing
+* 4. VLLM: Serving Models and Performance Comparison
 ** xref:04-01-base-model.adoc[4.1 Serving Base Models]
 ** xref:04-02-optimized-model.adoc[4.2 Serving Optimized Models]
 
-* 5. Pipelines: Working with LLM Compressor
+* 5. Pipelines: Quantizing models with LLM Compressor
 ** xref:05-01-quantization-pipeline.adoc[5.1 Quantization with Pipelines]
 ** xref:05-02-quantization-pipeline-exercise.adoc[5.2 Exercise]
 

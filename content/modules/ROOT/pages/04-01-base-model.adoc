@@ -1,7 +1,7 @@
 = Deploy and Test the Base Model
 include::_attributes.adoc[]
 
-== Deploy the Base Model
+== Deploy the Base Model with VLLM
 
 Ready to deploy your model? Let’s get started! Follow these steps to bring your model to life in the Data Science Project (`{user}`):
 
