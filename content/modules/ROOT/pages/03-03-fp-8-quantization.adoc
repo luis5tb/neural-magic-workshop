@@ -1,23 +1,24 @@
 = Weights and Activation Quantization (FP8)
 include::_attributes.adoc[]
 
-In this exercise, we will use a notebook to investigate how LLMs weights and actications can be quantized to FP8 for memory savings and inference acceleration.
-Quantization of models with FP8 allows for a 2x reduction in model memory requirements and up to a 1.6x improvement in throughput with minimal impact on accuracy.
+In this exercise, we will use a notebook to investigate how LLMs weights and activations can be quantized to **FP8** for memory savings and inference acceleration. This quantization method allows for:
 
-NOTE: Currently, only Hopper and Ada Lovelace GPUs are officially supported for W8A8. Ampere GPUs are supported for W8A16 (weight-only FP8) utilizing Marlin kernels.
+- A **2x reduction** in model memory requirements
+- Up to a **1.6x improvement** in throughput with minimal impact on accuracy
 
+IMPORTANT: 🚨 Currently, only Hopper and Ada Lovelace GPUs are officially supported for W8A8. Ampere GPUs are supported for W8A16 (weight-only FP8) utilizing Marlin kernels.
 
 == Quantization Process
 
 The quantization process involves the following steps:
 
-1. *Load the Model*: Load the pre-trained LLM model.
-2. *Quantize the Model*: Convert the model weights and activations to FP8 format.
-** Using RTN (FP8_dynamic)
-** No need for calibration data
-3. *Evaluate the Model*: Evaluate the quantized model's accuracy.
-+
-IMPORTANT: 🚨 After quantizing the model the GPU memory may not be freed, so you need to **restart the kernel** before evaluating the model to ensure you have enough GPU RAM available.
+1. **Load the Model**: Load the pre-trained LLM model.
+2. **Quantize the Model**: Convert the model weights and activations to **FP8** format.
+   ** Using RTN (FP8_dynamic)
+   ** No need for calibration data
+3. **Evaluate the Model**: Evaluate the quantized model's accuracy.
+
+IMPORTANT: 🚨 After quantizing the model, the GPU memory may not be freed. You need to **restart the kernel** before evaluating the model to ensure you have enough GPU RAM available.
 [.bordershadow]
 image::03/03-restart-kernel.png[]
 
@@ -29,7 +30,7 @@ image::03/03-03-fp8-notebook.png[]
 
 When done, you can close the notebook and head to the next page.
 
-IMPORTANT: 🚨 Once you complete all the quantization exercises and you no longer need the workbench, ensure you stop it so that the associated GPU gets freed and it can be utilized to serve the model.
+IMPORTANT: 🚨 Once you complete all the quantization exercises and you no longer need the workbench, ensure you **stop it** so that the associated GPU gets freed and can be utilized to serve the model.
 [.bordershadow]
 image::03/03-workbench-done.png[]
 [.bordershadow]

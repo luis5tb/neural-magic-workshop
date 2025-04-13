@@ -1,34 +1,37 @@
 = Weights and Activation Quantization (INT8)
 include::_attributes.adoc[]
 
-In this exercise, we will use a notebook to investigate how LLMs weights and activations can be quantized to INT8 for memory savings and inference acceleration.
-This quantization method is particularly useful for reducing model size while maintaining good performance.
 
-IMPORTANT: 🚨 The time for the workshop is limited, so doing the three quantization techniques may take too much time. Please only do one of the INT versions (INT4 or INT8) and then FP8 which is fast as it does not need calibration data. So, either skip this section or section 3.1.
+In this exercise, we will use a notebook to investigate how LLMs weights and activations can be quantized to **INT8** for memory savings and inference acceleration. This quantization method is particularly useful for:
+
+- Reducing model size
+- Maintaining good performance during inference
+
+IMPORTANT: 🚨 The time for the workshop is limited. Please do only one of the INT versions (either **INT4** or **INT8**) and then **FP8**, which is fast as it does not need calibration data. You may choose to skip this section or section 3.1.
+
 
 == Quantization Process
 
 The quantization process involves the following steps:
 
-1. *Load the Model*: Load the pre-trained LLM model.
-2. *Prepare calibration dataset*: Prepare a dataset for calibration.
-3. *Quantize the Model*: Convert the model weights and activations to INT8 format.
-** Using SmoothQuant and GPTQ
-4. *Evaluate the Model*: Evaluate the quantized model's accuracy.
-+
-IMPORTANT: 🚨 After quantizing the model the GPU memory may not be freed, so you need to **restart the kernel** before evaluating the model to ensure you have enough GPU RAM available.
+1. **Load the Model**: Load the pre-trained LLM model.
+2. **Prepare Calibration Dataset**: Prepare a dataset for calibration.
+3. **Quantize the Model**: Convert the model weights and activations to **INT8** format.
+   ** Using SmoothQuant and GPTQ
+4. **Evaluate the Model**: Evaluate the quantized model's accuracy.
+
+IMPORTANT: 🚨 After quantizing the model, the GPU memory may not be freed. You need to **restart the kernel** before evaluating the model to ensure you have enough GPU RAM available.
 [.bordershadow]
 image::03/03-restart-kernel.png[]
 
 == Exercise: Quantize the Model with llm-compressor
-
 Go to the workbench created in the previous section (Section 2). From the `neural-magic-workshop/lab-materials/03` folder, please open the notebook called `weight_activation_quantization.ipynb` and follow the instructions.
 [.bordershadow]
 image::03/03-02-int8-notebook.png[]
 
 When done, you can close the notebook and head to the next page.
 
-IMPORTANT: 🚨 Once you complete all the quantization exercises and you no longer need the workbench, ensure you stop it so that the associated GPU gets freed and it can be utilized to serve the model.
+IMPORTANT: 🚨 Once you complete all the quantization exercises and you no longer need the workbench, ensure you **stop it** so that the associated GPU gets freed and can be utilized to serve the model.
 [.bordershadow]
 image::03/03-workbench-done.png[]
 [.bordershadow]

@@ -121,3 +121,5 @@ image::02/02-02-pipelineserver02.png[]
 image::02/02-02-pipelineserver03.png[]
 
 At this point, your pipeline server is ready and deployed. 🎉
+
+NOTE: There is no need for wait for the pipeline server to be ready. You can go now to the next steps and check this out later on, before Section 5 steps. This may take more than a couple of minutes to complete.

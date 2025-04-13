@@ -48,16 +48,16 @@ API_KEY = "your-api-key"   // Replace with your API key
 ----
 To fill in these variables, use the information from your deployed model:
 ** Set `MODEL` to the name of your model (`optimized`).
-** Copy the model server `token` for the `API_KEY`.
-+
-[.bordershadow]
-image::04/04-01-inference-token.png[]
 ** For the `URL`, check the `internal and external endpoints details` of your deployed model and use the **external endpoint**.
 +
 [.bordershadow]
 image::04/04-01-inference-endpoints.png[]
+** Copy the model server `token` for the `API_KEY`.
++
+[.bordershadow]
+image::04/04-01-inference-token.png[]
 
-* The required dependencies should already be installed from the previous Section, but if not install the next package:
+* The required dependencies should already be installed from the previous Section, but if not install the next package in the previously created terminal:
 +
 [source,bash]
 ----
